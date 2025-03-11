@@ -1,0 +1,115 @@
+{
+  "ftueAnalysis": [
+    {
+      "criterion": "Splash Screen to Interactive Game Time",
+      "meetsBestPractices": "Partial",
+      "observations": "Takes about 8 seconds to get from splash screen to interactive gameplay, which is slightly longer than recommended.",
+      "suggestedImprovements": "Consider optimizing initial load time to under 5 seconds for better user retention.",
+      "numericalValue": {
+        "timeInSeconds": 8
+      }
+    },
+    {
+      "criterion": "Loading Screen Duration",
+      "meetsBestPractices": "No",
+      "observations": "Multiple loading screens observed with durations up to 12 seconds, which is too long for mobile users.",
+      "suggestedImprovements": "Reduce loading times to under 3 seconds or add engaging elements during loading to maintain user interest.",
+      "numericalValue": {
+        "maxDurationInSeconds": 12
+      }
+    },
+    {
+      "criterion": "Permission Request Explanation",
+      "meetsBestPractices": "Yes",
+      "observations": "All permission requests are preceded by clear explanations of why they are needed and how they benefit the user.",
+      "suggestedImprovements": "",
+      "numericalValue": {
+        "permissionsRequestedWithoutExplanationCount": 0
+      }
+    },
+    {
+      "criterion": "Skippable Tutorial",
+      "meetsBestPractices": "No",
+      "observations": "Tutorial is mandatory with no option to skip, which may frustrate experienced players.",
+      "suggestedImprovements": "Add a clearly visible skip option for the tutorial to accommodate experienced users.",
+      "numericalValue": {
+        "isSkippable": false
+      }
+    },
+    {
+      "criterion": "Language Consistency",
+      "meetsBestPractices": "Yes",
+      "observations": "All text elements maintain consistent language throughout the experience, matching the device language.",
+      "suggestedImprovements": "",
+      "numericalValue": {
+        "isLanguageConsistent": true
+      }
+    },
+    {
+      "criterion": "Login Requirement and Explanation",
+      "meetsBestPractices": "Partial",
+      "observations": "Login is mandatory but offers multiple options (email, Google, Facebook). Explanation of benefits is minimal.",
+      "suggestedImprovements": "Provide clearer explanation of the benefits of logging in and consider offering a 'play as guest' option.",
+      "numericalValue": {
+        "isLoginMandatory": true,
+        "loginOptionsCount": 3
+      }
+    },
+    {
+      "criterion": "Automatic Google Play Services Login",
+      "meetsBestPractices": "Yes",
+      "observations": "Automatic Google Play Services login is implemented and works smoothly when the user is already signed in.",
+      "suggestedImprovements": "",
+      "numericalValue": {
+        "isAutomaticGoogleLogin": true
+      }
+    },
+    {
+      "criterion": "Interstitials and Purchase Modals",
+      "meetsBestPractices": "No",
+      "observations": "3 interstitial ads and 2 purchase modals shown during FTUE, which is excessive and disrupts the experience.",
+      "suggestedImprovements": "Remove or significantly reduce interstitials during FTUE. Delay purchase modals until after the user has experienced core gameplay.",
+      "numericalValue": {
+        "interstitialCount": 3,
+        "purchaseModalCount": 2
+      }
+    },
+    {
+      "criterion": "Options Accessibility",
+      "meetsBestPractices": "Yes",
+      "observations": "Options menu is easily accessible via a clearly visible gear icon in the top right corner.",
+      "suggestedImprovements": "",
+      "numericalValue": {
+        "isOptionsAccessible": true
+      }
+    },
+    {
+      "criterion": "Start Game Clarity",
+      "meetsBestPractices": "Yes",
+      "observations": "The 'Start Game' button is prominently displayed and clearly labeled, making it intuitive to begin gameplay.",
+      "suggestedImprovements": "",
+      "numericalValue": {
+        "isStartGameClear": true
+      }
+    },
+    {
+      "criterion": "User Profile Visibility & Customization",
+      "meetsBestPractices": "Partial",
+      "observations": "Profile is visible but customization options are limited to avatar selection and username.",
+      "suggestedImprovements": "Consider adding more profile customization options to increase user engagement and personalization.",
+      "numericalValue": {
+        "isProfileVisible": true,
+        "isProfileCustomizable": true
+      }
+    },
+    {
+      "criterion": "Loading Status Feedback",
+      "meetsBestPractices": "No",
+      "observations": "Found 2 instances where screens took more than 3 seconds to load with no loading indicator or feedback.",
+      "suggestedImprovements": "Add loading indicators or progress bars for all transitions that take longer than 3 seconds.",
+      "numericalValue": {
+        "instancesWithoutFeedbackCount": 2
+      }
+    }
+  ]
+}
