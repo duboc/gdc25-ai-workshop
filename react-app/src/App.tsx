@@ -8,6 +8,7 @@ import { CssBaseline } from '@mui/material';
 
 function App() {
   const [initialTabs, setInitialTabs] = useState<TabData[]>([
+    { id: 'home', label: 'Home', data: null },
     { id: 'problems', label: 'User Feedback', data: null },
     { id: 'spam', label: 'Review Quality', data: null },
     { id: 'version', label: 'Version Comparison', data: null },

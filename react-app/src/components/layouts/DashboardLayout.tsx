@@ -3,6 +3,7 @@ import { Box, Container, Paper, Typography, Grid, Button, Chip, useTheme } from 
 import Header from '../common/Header';
 import TabNavigation from '../common/TabNavigation';
 import { useJsonData } from '../../contexts/JsonDataContext';
+import HomeDashboard from '../visualizations/home/HomeDashboard';
 import ProblemAnalysisDashboard from '../visualizations/problems/ProblemAnalysisDashboard';
 import SpamAnalysisDashboard from '../visualizations/spam/SpamAnalysisDashboard';
 import VersionComparisonDashboard from '../visualizations/comparison/VersionComparisonDashboard';
@@ -150,6 +151,8 @@ const DashboardLayout: React.FC = () => {
     if (!activeTabData) return null;
 
     switch (activeTabData.id) {
+      case 'home':
+        return <HomeDashboard />;
       case 'problems':
         return <ProblemAnalysisDashboard data={activeTabData.data} />;
       case 'spam':

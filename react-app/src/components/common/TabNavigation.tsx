@@ -7,9 +7,15 @@ import CompareIcon from '@mui/icons-material/Compare';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
+import HomeIcon from '@mui/icons-material/Home';
 
 // Map tab IDs to icons and new labels
 const tabConfig: Record<string, { icon: React.ReactElement; label: string; tooltip: string }> = {
+  'home': {
+    icon: <HomeIcon />,
+    label: 'Home',
+    tooltip: 'Start your review analysis journey'
+  },
   'problems': { 
     icon: <FeedbackIcon />, 
     label: 'User Feedback',
