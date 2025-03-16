@@ -128,7 +128,7 @@
             selectBtn.disabled = true;
             
             try {
-                // Step 1: Get a signed URL for upload
+                // Step 1: Get a upload URL
                 statusText.textContent = "Getting upload URL...";
                 progressBar.style.width = '10%';
                 progressBar.textContent = '10%';
@@ -152,15 +152,39 @@
                 fileId = urlData.fileId;
                 fileExt = urlData.fileExt;
                 
-                // Step 2: Upload the file directly to GCS
+                // Step 2: Start a resumable upload session
+                statusText.textContent = "Initializing upload...";
+                progressBar.style.width = '20%';
+                progressBar.textContent = '20%';
+                
+                const initResponse = await fetch(uploadUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Upload-Content-Type': selectedFile.type,
+                        'X-Upload-Content-Length': selectedFile.size.toString()
+                    }
+                });
+                
+                if (!initResponse.ok) {
+                    throw new Error('Failed to initialize upload');
+                }
+                
+                // Get the session URI from the Location header
+                const sessionUri = initResponse.headers.get('Location');
+                if (!sessionUri) {
+                    throw new Error('No upload session URI received');
+                }
+                
+                // Step 3: Upload the file
                 statusText.textContent = "Uploading video...";
                 progressBar.style.width = '30%';
                 progressBar.textContent = '30%';
                 
-                const uploadResponse = await fetch(uploadUrl, {
+                const uploadResponse = await fetch(sessionUri, {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'video/mp4'
+                        'Content-Type': selectedFile.type
                     },
                     body: selectedFile
                 });
@@ -169,7 +193,7 @@
                     throw new Error('Failed to upload file');
                 }
                 
-                // Step 3: Process the video
+                // Step 4: Process the video
                 statusText.textContent = "Processing video...";
                 progressBar.style.width = '60%';
                 progressBar.textContent = '60%';
@@ -191,7 +215,7 @@
                 
                 const processData = await processResponse.json();
                 
-                // Step 4: Redirect to download page
+                // Step 5: Redirect to download page
                 statusText.textContent = "Processing complete!";
                 progressBar.style.width = '100%';
                 progressBar.textContent = '100%';

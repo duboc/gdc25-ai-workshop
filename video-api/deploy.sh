@@ -11,3 +11,8 @@ gcloud run deploy video-compressor \
   --cpu 2 \
   --timeout 15m \
   --allow-unauthenticated
+
+echo "Make sure the Cloud Run service account has Storage Admin permissions:"
+echo "gcloud projects add-iam-policy-binding ${PROJECT_ID} \\"
+echo "  --member=serviceAccount:${PROJECT_ID}@appspot.gserviceaccount.com \\"
+echo "  --role=roles/storage.admin"

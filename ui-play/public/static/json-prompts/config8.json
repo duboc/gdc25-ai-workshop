@@ -1,0 +1,118 @@
+{
+  "type": "object",
+  "properties": {
+    "storeAnalysis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterion": {
+            "type": "string"
+          },
+          "meetsBestPractices": {
+            "type": "string",
+            "enum": ["Yes", "No", "Partial"]
+          },
+          "observations": {
+            "type": "string"
+          },
+          "suggestedImprovements": {
+            "type": "string"
+          },
+          "numericalValue": {
+            "type": "object",
+            "properties": {
+              "flagsUsedCount": {
+                "type": "integer",
+                "nullable": true
+              },
+              "isFlagUsed_MostPopular": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isFlagUsed_BestValue": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isFlagUsed_Exclusive": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isFlagUsed_Other": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasDailyReward": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasPromoCodeEntry": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isPopularitySorted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isPriceSorted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasSortingOptions": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "featuredItemsCount": {
+                "type": "integer",
+                "nullable": true
+              },
+              "hasLimitedTimeOffers": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "limitedTimeOffersCount": {
+                "type": "integer",
+                "nullable": true
+              },
+              "isSkuDescriptionClear": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isBundleContentClear": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasCheapItems": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasMediumPricedItems": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasExpensiveItems": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasSubDollarSkus": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasFirstPurchaseDiscount": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hasBulkPurchaseOptions": {
+                "type": "boolean",
+                "nullable": true
+              }
+            }
+          }
+        },
+        "required": ["criterion", "meetsBestPractices", "observations", "suggestedImprovements", "numericalValue"]
+      }
+    }
+  },
+  "required": ["storeAnalysis"],
+  "propertyOrdering": ["storeAnalysis"]
+}

@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+      "themes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "stories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "as_a": {
+                    "type": "string"
+                  },
+                  "i_want": {
+                    "type": "string"
+                  },
+                  "so_that": {
+                    "type": "string"
+                  },
+                  "acceptance_criteria": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "story_points": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "priority": {
+                    "type": "string",
+                    "enum": ["High", "Medium", "Low"]
+                  },
+                  "supporting_reviews": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": ["as_a", "i_want", "so_that", "acceptance_criteria", "story_points", "priority", "supporting_reviews"]
+              }
+            }
+          },
+          "required": ["name", "stories"]
+        }
+      },
+      "summary": {
+        "type": "object",
+        "properties": {
+          "total_stories": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "total_story_points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "theme_breakdown": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "required": ["total_stories", "total_story_points", "theme_breakdown"]
+      }
+    },
+    "required": ["themes", "summary"],
+    "propertyOrdering": ["themes", "summary"]
+  }

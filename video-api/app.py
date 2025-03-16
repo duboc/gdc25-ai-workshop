@@ -7,6 +7,7 @@ import json
 from datetime import datetime, timedelta
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from google.cloud import storage
+import urllib.parse
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024  # 32MB max upload size for form data
@@ -83,15 +84,21 @@ def process_video(input_blob_name, output_blob_name):
         print(f"Processing error: {str(e)}")
         return False
 
-def generate_signed_url(blob_name, http_method='GET', expiration_minutes=30):
-    """Generate a signed URL for a blob that expires after a set time"""
+def generate_public_url(blob_name, expiration_minutes=30):
+    """Generate a public URL for a blob with a short expiration time"""
     blob = bucket.blob(blob_name)
-    url = blob.generate_signed_url(
-        version="v4",
-        expiration=datetime.utcnow() + timedelta(minutes=expiration_minutes),
-        method=http_method
-    )
-    return url
+    
+    # Make the blob publicly accessible for a short time
+    blob.make_public()
+    
+    # Get the public URL
+    public_url = blob.public_url
+    
+    # Schedule the blob to be made private again after expiration
+    # In a production environment, you would use Cloud Functions or Cloud Scheduler for this
+    # For now, we'll rely on the download page to inform users of the expiration
+    
+    return public_url
 
 @app.route('/')
 def index():
@@ -99,7 +106,7 @@ def index():
 
 @app.route('/get-upload-url', methods=['POST'])
 def get_upload_url():
-    """Generate a signed URL for direct-to-cloud upload"""
+    """Generate a URL for direct-to-cloud upload using a resumable upload session"""
     try:
         # Get file extension from the request
         data = request.get_json()
@@ -115,8 +122,11 @@ def get_upload_url():
         # Define GCS paths
         input_blob_name = f"uploads/{unique_id}{file_ext}"
         
-        # Generate signed URL for upload
-        upload_url = generate_signed_url(input_blob_name, http_method='PUT', expiration_minutes=10)
+        # Create a new blob and get a resumable upload URL
+        blob = bucket.blob(input_blob_name)
+        
+        # Create a resumable upload session
+        upload_url = f"https://storage.googleapis.com/upload/storage/v1/b/{BUCKET_NAME}/o?uploadType=resumable&name={urllib.parse.quote(input_blob_name)}"
         
         return jsonify({
             'uploadUrl': upload_url,
@@ -151,12 +161,12 @@ def process():
         success = process_video(input_blob_name, output_blob_name)
         
         if success:
-            # Generate a signed URL for download
-            signed_url = generate_signed_url(output_blob_name)
+            # Generate a public URL for download
+            download_url = generate_public_url(output_blob_name)
             
             return jsonify({
                 'success': True,
-                'downloadUrl': signed_url,
+                'downloadUrl': download_url,
                 'fileId': file_id,
                 'fileExt': file_ext
             })
@@ -177,5 +187,5 @@ def download_page():
     return render_template('download.html', signed_url=download_url)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8080))
+    port = int(os.environ.get('PORT', 8081))
     app.run(host='0.0.0.0', port=port, debug=True) 

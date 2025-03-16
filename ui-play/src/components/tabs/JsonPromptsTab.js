@@ -41,6 +41,36 @@ const JsonPromptsTab = () => {
             title: 'Version Comparison', 
             promptPath: '/static/json-prompts/prompt3.md',
             jsonPath: '/static/json-prompts/config3.json'
+          },
+          { 
+            id: 'pair4', 
+            title: 'User Segmentation', 
+            promptPath: '/static/json-prompts/prompt4.md',
+            jsonPath: '/static/json-prompts/config4.json'
+          },
+          { 
+            id: 'pair5', 
+            title: 'User Stories', 
+            promptPath: '/static/json-prompts/prompt5.md',
+            jsonPath: '/static/json-prompts/config5.json'
+          },
+          { 
+            id: 'pair6', 
+            title: 'Marketing Campaign', 
+            promptPath: '/static/json-prompts/prompt6.md',
+            jsonPath: '/static/json-prompts/config6.json'
+          },
+          {
+            id: 'pair7',
+            title: 'FTUE Metrics',
+            promptPath: '/static/json-prompts/prompt7.md',
+            jsonPath: '/static/json-prompts/config7.json'
+          },
+          {
+            id: 'pair8',
+            title: 'User Experience Store Analysis',
+            promptPath: '/static/json-prompts/prompt8.md',
+            jsonPath: '/static/json-prompts/config8.json'
           }
         ];
         

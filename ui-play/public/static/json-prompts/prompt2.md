@@ -1,169 +1,90 @@
-# Structured Feature Request Extraction Prompt
+# Detection of Inconsistent Reviews or Spam
 
-## Purpose
-This prompt is designed to extract feature requests from Google Play Store reviews and provide a structured JSON output with detailed categorization and implementation suggestions.
+## Overview
+This framework provides a systematic approach for analyzing user reviews to identify potential spam, fake reviews, or manipulated content. By examining various patterns and signals, you can improve the quality of your review system and ensure more reliable feedback for your users.
 
-## Prompt Template
+## Analysis Framework
 
-```
-Extract feature requests from the following Google Play Store review and provide a structured response:
+### 1. Statistical Analysis
+- **Rating Distribution**: Examine the spread of ratings (1-5 stars) to identify unnatural patterns
+- **Review Length**: Calculate average word/character count across reviews
+- **Keyword Frequency**: Identify unusually frequent terms or phrases
+- **Temporal Patterns**: Analyze posting times, dates, and frequency
 
-Review: "{review_text}"
+### 2. Content Analysis
+- **Sentiment-Rating Alignment**: Identify discrepancies between text sentiment and numerical rating
+- **Content Quality**: Flag extremely short or meaningless reviews
+- **Formatting Issues**: Detect excessive emoji use or unusual formatting
+- **Language Patterns**: Identify artificial, templated, or repetitive language
+- **Generic Content**: Flag reviews that could apply to any product/app
 
-Your analysis should include:
-1. A list of all explicit or implicit feature requests in the review
-2. For each feature request:
-   a. The feature name
-   b. Category (UI/UX, Performance, Functionality, Integration, Security, Other)
-   c. Clarity rating (Clear, Somewhat Clear, Vague)
-   d. Impact assessment (High, Medium, Low)
-   e. Implementation difficulty (Easy, Medium, Hard)
-   f. Suggested implementation approach
-3. Any competing apps mentioned that already have these features
-4. An assessment of the urgency of implementing these features
+### 3. Behavior Patterns
+- **Duplicate Detection**: Identify similar or identical reviews posted within short timeframes
+- **Volume Anomalies**: Detect abnormal spikes in positive/negative reviews
+- **User Activity**: Flag users with multiple or suspicious review patterns
+- **Coordinated Activity**: Identify reviews that appear to be part of a coordinated campaign
 
-Format your response as a valid JSON object with the following structure:
-{
-  "feature_requests": [
-    {
-      "feature": string,
-      "category": string,
-      "clarity": string,
-      "impact": string,
-      "implementation_difficulty": string,
-      "implementation_approach": [string]
-    }
-  ],
-  "competing_apps": [
-    {
-      "app_name": string,
-      "features": [string]
-    }
-  ],
-  "urgency_assessment": {
-    "level": string,
-    "reasoning": string
-  }
-}
+### 4. Authenticity Signals
+- **Specific Details**: Track mentions of specific product features or functionality
+- **Constructive Feedback**: Identify detailed, helpful feedback
+- **Personal Experiences**: Look for descriptions of authentic user experiences
+- **Natural Language**: Analyze conversational tone and natural language patterns
 
-Ensure your response is valid JSON that can be parsed programmatically.
-```
+### 5. Red Flags
+- **Cross-Promotion**: Detect reviews promoting other products/services
+- **Marketing Language**: Identify overly promotional or marketing-style language
+- **Irrelevant Content**: Flag information unrelated to the product
+- **Engagement Manipulation**: Identify suspicious patterns in likes, upvotes, or other engagement metrics
 
-## Example Usage
+## Deliverables
 
-```
-Extract feature requests from the following Google Play Store review and provide a structured response:
+### Quantitative Analysis
+- Statistical breakdown of identified patterns
+- Anomaly detection results
+- Correlation analysis between different signals
 
-Review: "I've been using this app for months and it's almost perfect for my needs. Would love to see dark mode support and the ability to export my data to CSV. Also, it would be great if it could sync with my Google Calendar. The competitor app 'TaskMaster' already has these features and I'm considering switching if these aren't added soon."
+### Problematic Review Identification
+- List of potentially fake/spam reviews
+- Justification for each flagged review
+- Confidence scoring for classification
 
-Your analysis should include:
-1. A list of all explicit or implicit feature requests in the review
-2. For each feature request:
-   a. The feature name
-   b. Category (UI/UX, Performance, Functionality, Integration, Security, Other)
-   c. Clarity rating (Clear, Somewhat Clear, Vague)
-   d. Impact assessment (High, Medium, Low)
-   e. Implementation difficulty (Easy, Medium, Hard)
-   f. Suggested implementation approach
-3. Any competing apps mentioned that already have these features
-4. An assessment of the urgency of implementing these features
+### Spam Detection Recommendations
+- Technical improvements for automated detection
+- Process recommendations for review moderation
+- Threshold settings for different spam signals
 
-Format your response as a valid JSON object with the following structure:
-{
-  "feature_requests": [
-    {
-      "feature": string,
-      "category": string,
-      "clarity": string,
-      "impact": string,
-      "implementation_difficulty": string,
-      "implementation_approach": [string]
-    }
-  ],
-  "competing_apps": [
-    {
-      "app_name": string,
-      "features": [string]
-    }
-  ],
-  "urgency_assessment": {
-    "level": string,
-    "reasoning": string
-  }
-}
+### Quality Assessment
+- Overall review ecosystem health metrics
+- Trends in review quality over time
+- Benchmark comparisons (if available)
 
-Ensure your response is valid JSON that can be parsed programmatically.
-```
-
-## Expected Output
-
+## Output Format
 ```json
 {
-  "feature_requests": [
+  "analysis_summary": {
+    "total_reviews_analyzed": 0,
+    "potential_spam_percentage": 0,
+    "confidence_score": 0,
+    "key_patterns_identified": []
+  },
+  "flagged_reviews": [
     {
-      "feature": "Dark Mode Support",
-      "category": "UI/UX",
-      "clarity": "Clear",
-      "impact": "Medium",
-      "implementation_difficulty": "Easy",
-      "implementation_approach": [
-        "Add a theme toggle in settings",
-        "Create dark color palette",
-        "Implement theme switching logic",
-        "Test across all screens"
-      ]
-    },
-    {
-      "feature": "CSV Export Functionality",
-      "category": "Functionality",
-      "clarity": "Clear",
-      "impact": "High",
-      "implementation_difficulty": "Medium",
-      "implementation_approach": [
-        "Add export button in data view screens",
-        "Create service to format data into CSV structure",
-        "Implement file saving using device's native sharing options",
-        "Add options for selecting date ranges and data categories"
-      ]
-    },
-    {
-      "feature": "Google Calendar Integration",
-      "category": "Integration",
-      "clarity": "Clear",
-      "impact": "High",
-      "implementation_difficulty": "Hard",
-      "implementation_approach": [
-        "Implement Google OAuth 2.0 authentication",
-        "Use Google Calendar API for bidirectional sync",
-        "Create settings for sync preferences",
-        "Implement conflict resolution logic"
-      ]
+      "review_id": "",
+      "flags": [],
+      "justification": "",
+      "confidence_score": 0
     }
   ],
-  "competing_apps": [
-    {
-      "app_name": "TaskMaster",
-      "features": [
-        "Dark Mode Support",
-        "CSV Export Functionality",
-        "Google Calendar Integration"
-      ]
-    }
-  ],
-  "urgency_assessment": {
-    "level": "High",
-    "reasoning": "User explicitly mentions considering switching to a competitor if features aren't added soon, indicating high risk of customer loss."
+  "recommendations": {
+    "technical": [],
+    "process": [],
+    "threshold_settings": {}
+  },
+  "quality_insights": {
+    "overall_score": 0,
+    "strengths": [],
+    "weaknesses": [],
+    "improvement_opportunities": []
   }
 }
 ```
-
-## When to Use
-Use this prompt when you need to extract actionable feature requests from user reviews in a structured format. The JSON output makes it easy to prioritize development efforts, track feature requests across multiple reviews, and identify patterns in user needs.
-
-## Configuration Options
-This prompt can be customized with the following parameters:
-
-- **max_features**: Maximum number of feature requests to extract (default: 5)
-- **include_implementation**: Boolean flag to include or exclude implementation suggestions (default: true)
-
-See the accompanying JSON configuration file for more details.
