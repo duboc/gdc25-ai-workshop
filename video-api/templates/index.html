@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Compressor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .upload-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        .upload-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #file-name {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .progress-container {
+            margin-top: 20px;
+            display: none;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 4px;
+            padding: 3px;
+        }
+        .progress {
+            height: 20px;
+            background-color: #4CAF50;
+            border-radius: 4px;
+            width: 0%;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+        .status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Compressor - 640x360@30fps</h1>
+    <div class="upload-container">
+        <p>Upload your video file to convert it to 640x360 resolution with maximum compression</p>
+        <div>
+            <input type="file" id="file-input" accept="video/*" style="display:none">
+            <button type="button" class="upload-btn" id="select-btn" onclick="document.getElementById('file-input').click()">Select Video</button>
+            <div id="file-name"></div>
+            <button type="button" class="upload-btn" id="upload-btn" style="display:none">Upload &amp; Process</button>
+        </div>
+    </div>
+    <div class="progress-container" id="progress-container">
+        <div class="status" id="status">Preparing upload...</div>
+        <div class="progress-bar">
+            <div class="progress" id="progress">0%</div>
+        </div>
+        <div class="error" id="error-message"></div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        let fileId = null;
+        let fileExt = null;
+        
+        // Handle file selection
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            const fileInput = e.target;
+            const fileNameDisplay = document.getElementById('file-name');
+            const uploadBtn = document.getElementById('upload-btn');
+            
+            if (fileInput.files.length > 0) {
+                selectedFile = fileInput.files[0];
+                fileNameDisplay.textContent = "Selected: " + selectedFile.name;
+                uploadBtn.style.display = 'inline-block';
+            } else {
+                selectedFile = null;
+                fileNameDisplay.textContent = "";
+                uploadBtn.style.display = 'none';
+            }
+        });
+        
+        // Handle upload button click
+        document.getElementById('upload-btn').addEventListener('click', async function() {
+            if (!selectedFile) return;
+            
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress');
+            const statusText = document.getElementById('status');
+            const errorMessage = document.getElementById('error-message');
+            const uploadBtn = document.getElementById('upload-btn');
+            const selectBtn = document.getElementById('select-btn');
+            
+            // Show progress container
+            progressContainer.style.display = 'block';
+            errorMessage.style.display = 'none';
+            uploadBtn.disabled = true;
+            selectBtn.disabled = true;
+            
+            try {
+                // Step 1: Get a signed URL for upload
+                statusText.textContent = "Getting upload URL...";
+                progressBar.style.width = '10%';
+                progressBar.textContent = '10%';
+                
+                const urlResponse = await fetch('/get-upload-url', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        filename: selectedFile.name
+                    })
+                });
+                
+                if (!urlResponse.ok) {
+                    throw new Error('Failed to get upload URL');
+                }
+                
+                const urlData = await urlResponse.json();
+                const uploadUrl = urlData.uploadUrl;
+                fileId = urlData.fileId;
+                fileExt = urlData.fileExt;
+                
+                // Step 2: Upload the file directly to GCS
+                statusText.textContent = "Uploading video...";
+                progressBar.style.width = '30%';
+                progressBar.textContent = '30%';
+                
+                const uploadResponse = await fetch(uploadUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'video/mp4'
+                    },
+                    body: selectedFile
+                });
+                
+                if (!uploadResponse.ok) {
+                    throw new Error('Failed to upload file');
+                }
+                
+                // Step 3: Process the video
+                statusText.textContent = "Processing video...";
+                progressBar.style.width = '60%';
+                progressBar.textContent = '60%';
+                
+                const processResponse = await fetch('/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        fileId: fileId,
+                        fileExt: fileExt
+                    })
+                });
+                
+                if (!processResponse.ok) {
+                    throw new Error('Failed to process video');
+                }
+                
+                const processData = await processResponse.json();
+                
+                // Step 4: Redirect to download page
+                statusText.textContent = "Processing complete!";
+                progressBar.style.width = '100%';
+                progressBar.textContent = '100%';
+                
+                setTimeout(() => {
+                    window.location.href = '/download?url=' + encodeURIComponent(processData.downloadUrl);
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                statusText.textContent = "Error occurred";
+                errorMessage.textContent = error.message || "An unexpected error occurred";
+                errorMessage.style.display = 'block';
+                uploadBtn.disabled = false;
+                selectBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html> 

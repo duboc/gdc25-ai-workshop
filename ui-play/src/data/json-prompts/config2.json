@@ -1,0 +1,166 @@
+{
+  "name": "Feature Request Extraction Configuration",
+  "version": "1.0.0",
+  "description": "Configuration for extracting feature requests from Google Play reviews",
+  "input_parameters": {
+    "review_text": {
+      "type": "string",
+      "description": "The full text of the review to analyze",
+      "required": true
+    },
+    "max_features": {
+      "type": "integer",
+      "description": "Maximum number of feature requests to extract",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 10
+    },
+    "include_implementation": {
+      "type": "boolean",
+      "description": "Whether to include implementation suggestions",
+      "default": true
+    }
+  },
+  "output_format": {
+    "feature_requests": {
+      "type": "array",
+      "description": "List of feature requests extracted from the review",
+      "items": {
+        "type": "object",
+        "properties": {
+          "feature": {
+            "type": "string",
+            "description": "The requested feature"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of the feature request",
+            "enum": ["UI/UX", "Performance", "Functionality", "Integration", "Security", "Other"]
+          },
+          "clarity": {
+            "type": "string",
+            "description": "How clearly the feature request is expressed",
+            "enum": ["Clear", "Somewhat Clear", "Vague"]
+          },
+          "impact": {
+            "type": "string",
+            "description": "Potential impact of implementing the feature",
+            "enum": ["High", "Medium", "Low"]
+          },
+          "implementation_difficulty": {
+            "type": "string",
+            "description": "Estimated difficulty of implementing the feature",
+            "enum": ["Easy", "Medium", "Hard"]
+          },
+          "implementation_approach": {
+            "type": "array",
+            "description": "Suggested steps for implementing the feature",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["feature", "category", "clarity", "impact"]
+      }
+    },
+    "competing_apps": {
+      "type": "array",
+      "description": "Competing apps mentioned that already have the requested features",
+      "items": {
+        "type": "object",
+        "properties": {
+          "app_name": {
+            "type": "string",
+            "description": "Name of the competing app"
+          },
+          "features": {
+            "type": "array",
+            "description": "Features the competing app has that were requested",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "urgency_assessment": {
+      "type": "object",
+      "description": "Assessment of the urgency of implementing the requested features",
+      "properties": {
+        "level": {
+          "type": "string",
+          "description": "Level of urgency",
+          "enum": ["Critical", "High", "Medium", "Low"]
+        },
+        "reasoning": {
+          "type": "string",
+          "description": "Reasoning behind the urgency assessment"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "review_text": "I've been using this app for months and it's almost perfect for my needs. Would love to see dark mode support and the ability to export my data to CSV. Also, it would be great if it could sync with my Google Calendar. The competitor app 'TaskMaster' already has these features and I'm considering switching if these aren't added soon."
+      },
+      "output": {
+        "feature_requests": [
+          {
+            "feature": "Dark Mode Support",
+            "category": "UI/UX",
+            "clarity": "Clear",
+            "impact": "Medium",
+            "implementation_difficulty": "Easy",
+            "implementation_approach": [
+              "Add a theme toggle in settings",
+              "Create dark color palette",
+              "Implement theme switching logic",
+              "Test across all screens"
+            ]
+          },
+          {
+            "feature": "CSV Export Functionality",
+            "category": "Functionality",
+            "clarity": "Clear",
+            "impact": "High",
+            "implementation_difficulty": "Medium",
+            "implementation_approach": [
+              "Add export button in data view screens",
+              "Create service to format data into CSV structure",
+              "Implement file saving using device's native sharing options",
+              "Add options for selecting date ranges and data categories"
+            ]
+          },
+          {
+            "feature": "Google Calendar Integration",
+            "category": "Integration",
+            "clarity": "Clear",
+            "impact": "High",
+            "implementation_difficulty": "Hard",
+            "implementation_approach": [
+              "Implement Google OAuth 2.0 authentication",
+              "Use Google Calendar API for bidirectional sync",
+              "Create settings for sync preferences",
+              "Implement conflict resolution logic"
+            ]
+          }
+        ],
+        "competing_apps": [
+          {
+            "app_name": "TaskMaster",
+            "features": [
+              "Dark Mode Support",
+              "CSV Export Functionality",
+              "Google Calendar Integration"
+            ]
+          }
+        ],
+        "urgency_assessment": {
+          "level": "High",
+          "reasoning": "User explicitly mentions considering switching to a competitor if features aren't added soon, indicating high risk of customer loss."
+        }
+      }
+    }
+  ]
+}

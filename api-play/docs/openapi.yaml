@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Google Play Reviews API
+  description: |
+    An API that fetches reviews from Google Play Store and returns them as CSV data.
+    This API allows you to retrieve reviews for any app on the Google Play Store,
+    filter them by various parameters, and get the results in CSV format for easy analysis.
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+servers:
+  - url: http://localhost:5000
+    description: Local development server
+paths:
+  /api/reviews:
+    get:
+      summary: Get app reviews from Google Play Store
+      description: |
+        Fetches reviews for a specified app from the Google Play Store and returns them as CSV data.
+        You can filter reviews by language, country, and date range.
+      operationId: getReviews
+      parameters:
+        - name: app_id
+          in: query
+          description: The package name of the app (e.g., org.supertuxkart.stk)
+          required: true
+          schema:
+            type: string
+            example: org.supertuxkart.stk
+        - name: count
+          in: query
+          description: The number of reviews to fetch
+          required: false
+          schema:
+            type: integer
+            default: 100
+            minimum: 1
+            maximum: 1000
+            example: 50
+        - name: lang
+          in: query
+          description: The language of the reviews
+          required: false
+          schema:
+            type: string
+            default: en
+            example: en
+        - name: country
+          in: query
+          description: The country for the reviews
+          required: false
+          schema:
+            type: string
+            default: us
+            example: us
+        - name: from_date
+          in: query
+          description: Filter reviews from this date (format YYYY-MM-DD)
+          required: false
+          schema:
+            type: string
+            format: date
+            example: 2023-01-01
+        - name: to_date
+          in: query
+          description: Filter reviews until this date (format YYYY-MM-DD)
+          required: false
+          schema:
+            type: string
+            format: date
+            example: 2023-12-31
+      responses:
+        '200':
+          description: Successful response with CSV data
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+              example: |
+                reviewId,content,score,thumbsUpCount,reviewCreatedVersion,at,replyContent,repliedAt
+                gp:AOqpTOFnRmJBFcQQQqFbQPOqFcQQQqFbQP,Great game!,5,10,1.0,2023-01-15T14:30:45Z,,
+                gp:AOqpTOGhTyUjFcQQQqFbQPOqFcQQQqFbQP,Needs improvement,3,2,1.0,2023-01-10T09:15:30Z,Thanks for your feedback!,2023-01-11T11:20:15Z
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: app_id parameter is required
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Failed to fetch reviews
+components:
+  schemas:
+    Review:
+      type: object
+      properties:
+        reviewId:
+          type: string
+          description: Unique identifier for the review
+          example: gp:AOqpTOFnRmJBFcQQQqFbQPOqFcQQQqFbQP
+        content:
+          type: string
+          description: The review text
+          example: Great game! I love the graphics and gameplay.
+        score:
+          type: integer
+          description: Rating (1-5)
+          minimum: 1
+          maximum: 5
+          example: 5
+        thumbsUpCount:
+          type: integer
+          description: Number of thumbs up the review received
+          example: 10
+        reviewCreatedVersion:
+          type: string
+          description: App version the review was written for
+          example: 1.0
+        at:
+          type: string
+          format: date-time
+          description: Timestamp of the review
+          example: 2023-01-15T14:30:45Z
+        replyContent:
+          type: string
+          description: Developer's reply (if any)
+          example: Thanks for your review!
+        repliedAt:
+          type: string
+          format: date-time
+          description: Timestamp of the developer's reply (if any)
+          example: 2023-01-16T09:45:30Z
+  securitySchemes: {}

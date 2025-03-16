@@ -1,0 +1,287 @@
+/* Google Material Design Color Palette */
+:root {
+  --google-blue: #4285F4;
+  --google-red: #DB4437;
+  --google-yellow: #F4B400;
+  --google-green: #0F9D58;
+  --google-grey: #757575;
+  --google-light-grey: #f5f5f5;
+  --google-dark-grey: #333333;
+  
+  --primary: var(--google-blue);
+  --secondary: var(--google-grey);
+  --success: var(--google-green);
+  --danger: var(--google-red);
+  --warning: var(--google-yellow);
+  --info: var(--google-blue);
+  
+  --border-radius: 0.5rem;
+  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* General Layout */
+body {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--google-light-grey);
+  color: var(--google-dark-grey);
+}
+
+.app-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.app-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  color: var(--google-blue);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  color: var(--google-grey);
+  font-size: 1.1rem;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-link {
+  color: var(--google-grey);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--google-blue);
+  background-color: rgba(66, 133, 244, 0.05);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--google-blue);
+  background-color: white;
+  border-bottom: 3px solid var(--google-blue);
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link i {
+  margin-right: 0.5rem;
+}
+
+/* Tab Content */
+.tab-content {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+}
+
+/* Common Container Styles */
+.form-container, 
+.results-container,
+.prompts-tab .card,
+.json-prompts-tab .card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2rem;
+  border: none;
+}
+
+.tab-header {
+  margin-bottom: 2rem;
+}
+
+.tab-header h2 {
+  color: var(--google-blue);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.tab-header p {
+  color: var(--google-grey);
+}
+
+/* Form Styles */
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--google-blue);
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--google-dark-grey);
+}
+
+.form-control:focus {
+  border-color: var(--google-blue);
+  box-shadow: 0 0 0 0.2rem rgba(66, 133, 244, 0.25);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--google-blue);
+  border-color: var(--google-blue);
+}
+
+.btn-primary:hover {
+  background-color: #3367d6;
+  border-color: #3367d6;
+}
+
+.btn-success {
+  background-color: var(--google-green);
+  border-color: var(--google-green);
+}
+
+.btn-success:hover {
+  background-color: #0b8043;
+  border-color: #0b8043;
+}
+
+.btn-outline-primary {
+  color: var(--google-blue);
+  border-color: var(--google-blue);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--google-blue);
+  border-color: var(--google-blue);
+}
+
+/* Results Styles */
+.results-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--google-blue);
+  font-weight: 500;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.download-btn {
+  margin-top: 1rem;
+}
+
+/* Loading and Error States */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.error-message {
+  color: var(--google-red);
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: rgba(219, 68, 55, 0.1);
+  border: 1px solid rgba(219, 68, 55, 0.2);
+  border-radius: var(--border-radius);
+}
+
+.success-message {
+  color: var(--google-green);
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: rgba(15, 157, 88, 0.1);
+  border: 1px solid rgba(15, 157, 88, 0.2);
+  border-radius: var(--border-radius);
+}
+
+/* Table Styles */
+.table-responsive {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  color: var(--google-dark-grey);
+  font-weight: 500;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pagination {
+  margin-bottom: 0;
+}
+
+.page-link {
+  color: var(--google-blue);
+}
+
+.page-item.active .page-link {
+  background-color: var(--google-blue);
+  border-color: var(--google-blue);
+}
+
+/* Prompt Tab Styles */
+.prompts-tab .nav-pills .nav-link.active {
+  background-color: var(--google-blue);
+}
+
+.prompts-tab .card-body,
+.json-prompts-tab .card-body {
+  padding: 1.5rem;
+}
+
+.json-prompts-tab .card-header {
+  background-color: rgba(66, 133, 244, 0.05);
+  border-bottom: 1px solid rgba(66, 133, 244, 0.1);
+}
+
+.json-prompts-tab .card-header h4 {
+  color: var(--google-blue);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  .form-container, 
+  .results-container,
+  .prompts-tab .card,
+  .json-prompts-tab .card {
+    padding: 1rem;
+  }
+  
+  .nav-tabs .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}

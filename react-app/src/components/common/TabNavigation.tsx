@@ -7,6 +7,7 @@ import CompareIcon from '@mui/icons-material/Compare';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 // Map tab IDs to icons and new labels
 const tabConfig: Record<string, { icon: React.ReactElement; label: string; tooltip: string }> = {
@@ -39,6 +40,11 @@ const tabConfig: Record<string, { icon: React.ReactElement; label: string; toolt
     icon: <OndemandVideoIcon />, 
     label: 'Video Analysis',
     tooltip: 'Extract insights from video content'
+  },
+  'prompts': {
+    icon: <MenuBookIcon />,
+    label: 'Prompts Library',
+    tooltip: 'Browse and use AI prompts for different analysis tasks'
   }
 };
 
@@ -46,9 +52,15 @@ const TabNavigation: React.FC = () => {
   const { tabs, activeTab, setActiveTab } = useJsonData();
   const theme = useTheme();
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
-    setActiveTab(newValue);
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    // Convert the numeric index back to the tab ID
+    if (newValue >= 0 && newValue < tabs.length) {
+      setActiveTab(tabs[newValue].id);
+    }
   };
+
+  // Find the index of the active tab
+  const activeTabIndex = tabs.findIndex(tab => tab.id === activeTab);
 
   return (
     <Paper 
@@ -63,7 +75,7 @@ const TabNavigation: React.FC = () => {
       }}
     >
       <Tabs
-        value={activeTab}
+        value={activeTabIndex !== -1 ? activeTabIndex : 0}
         onChange={handleChange}
         variant="scrollable"
         scrollButtons="auto"
@@ -80,7 +92,7 @@ const TabNavigation: React.FC = () => {
           },
         }}
       >
-        {tabs.map((tab) => {
+        {tabs.map((tab, index) => {
           const config = tabConfig[tab.id] || { 
             icon: null, 
             label: tab.label,
@@ -131,7 +143,7 @@ const TabNavigation: React.FC = () => {
                     </Typography>
                   </Box>
                 }
-                value={tab.id} 
+                value={index} 
                 id={`tab-${tab.id}`}
                 aria-controls={`tabpanel-${tab.id}`}
                 sx={{

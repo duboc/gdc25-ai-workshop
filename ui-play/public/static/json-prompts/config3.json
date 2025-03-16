@@ -1,0 +1,218 @@
+{
+  "name": "User Segmentation Configuration",
+  "version": "1.0.0",
+  "description": "Configuration for segmenting users based on Google Play reviews",
+  "input_parameters": {
+    "reviews": {
+      "type": "array",
+      "description": "Array of review texts to analyze",
+      "items": {
+        "type": "string"
+      },
+      "required": true
+    },
+    "max_segments": {
+      "type": "integer",
+      "description": "Maximum number of user segments to identify",
+      "default": 5,
+      "minimum": 2,
+      "maximum": 10
+    },
+    "include_marketing": {
+      "type": "boolean",
+      "description": "Whether to include marketing approach suggestions",
+      "default": true
+    }
+  },
+  "output_format": {
+    "user_segments": {
+      "type": "array",
+      "description": "List of identified user segments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "segment_name": {
+            "type": "string",
+            "description": "Name of the user segment"
+          },
+          "characteristics": {
+            "type": "array",
+            "description": "Key characteristics of this user segment",
+            "items": {
+              "type": "string"
+            }
+          },
+          "needs": {
+            "type": "array",
+            "description": "Primary needs and pain points of this segment",
+            "items": {
+              "type": "string"
+            }
+          },
+          "feature_preferences": {
+            "type": "array",
+            "description": "Features this segment particularly values",
+            "items": {
+              "type": "string"
+            }
+          },
+          "usage_patterns": {
+            "type": "array",
+            "description": "Typical usage patterns for this segment",
+            "items": {
+              "type": "string"
+            }
+          },
+          "improvement_recommendations": {
+            "type": "array",
+            "description": "Recommended product improvements for this segment",
+            "items": {
+              "type": "string"
+            }
+          },
+          "marketing_approach": {
+            "type": "array",
+            "description": "Suggested marketing messaging for this segment",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["segment_name", "characteristics", "needs", "feature_preferences"]
+      }
+    },
+    "cross_segment_opportunities": {
+      "type": "array",
+      "description": "Opportunities that could benefit multiple segments",
+      "items": {
+        "type": "string"
+      }
+    },
+    "segment_prioritization": {
+      "type": "array",
+      "description": "Suggested prioritization of segments based on potential value",
+      "items": {
+        "type": "object",
+        "properties": {
+          "segment_name": {
+            "type": "string",
+            "description": "Name of the user segment"
+          },
+          "priority_reason": {
+            "type": "string",
+            "description": "Reason for this segment's priority level"
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "reviews": [
+          "I use this app every day for work. It helps me track my sales targets and client meetings. Would be better if it integrated with Salesforce. The UI is a bit complex but I've gotten used to it.",
+          "Downloaded this for my small business to track inventory. It's simple enough for my needs but lacks some advanced features. The price is right though!",
+          "As a student, I find this app perfect for keeping track of assignments and group projects. The free version has all I need. Love the colorful interface!",
+          "I'm a busy mom using this to organize family activities and shopping lists. The shared lists feature is a lifesaver! Wish it had location-based reminders.",
+          "Using this in our corporate environment to manage team tasks. Need better admin controls and user permission settings. The reporting features are excellent though."
+        ]
+      },
+      "output": {
+        "user_segments": [
+          {
+            "segment_name": "Professional Sales Users",
+            "characteristics": [
+              "Use the app for work/sales activities",
+              "Technically proficient",
+              "Value integration with other business tools",
+              "Willing to navigate complex interfaces for functionality"
+            ],
+            "needs": [
+              "CRM integration (specifically Salesforce)",
+              "Advanced tracking capabilities",
+              "Professional interface"
+            ],
+            "feature_preferences": [
+              "Business integrations",
+              "Sales tracking tools",
+              "Client management features"
+            ],
+            "usage_patterns": [
+              "Daily, consistent use",
+              "Work-hour focused usage",
+              "Task-oriented interaction"
+            ],
+            "improvement_recommendations": [
+              "Implement Salesforce API integration",
+              "Add specialized sales pipeline visualization",
+              "Create templates for common sales activities",
+              "Develop a \"pro\" interface mode with advanced features"
+            ],
+            "marketing_approach": [
+              "Emphasize productivity gains and ROI",
+              "Highlight time-saving through automation",
+              "Use professional, business-oriented language",
+              "Focus on reliability and data security"
+            ]
+          },
+          {
+            "segment_name": "Small Business Owners",
+            "characteristics": [
+              "Price-sensitive",
+              "Looking for simple solutions",
+              "Focus on inventory management",
+              "Value straightforward functionality"
+            ],
+            "needs": [
+              "Basic tracking capabilities",
+              "Affordable pricing",
+              "Simple interface",
+              "Reliable performance"
+            ],
+            "feature_preferences": [
+              "Inventory tracking",
+              "Basic reporting",
+              "Cost-effective solution"
+            ],
+            "usage_patterns": [
+              "Regular but not daily use",
+              "Focused on specific business functions",
+              "Practical, results-oriented usage"
+            ],
+            "improvement_recommendations": [
+              "Add small business-specific templates",
+              "Create simplified inventory management views",
+              "Maintain affordable pricing tier",
+              "Add basic financial reporting"
+            ],
+            "marketing_approach": [
+              "Emphasize affordability and value",
+              "Highlight ease of use for non-technical users",
+              "Focus on specific small business use cases",
+              "Stress reliability and support"
+            ]
+          }
+        ],
+        "cross_segment_opportunities": [
+          "A tiered pricing model would address the different willingness to pay across segments",
+          "Customizable interface could serve both simple and advanced use cases",
+          "Template library would benefit all identified segments with different templates for each"
+        ],
+        "segment_prioritization": [
+          {
+            "segment_name": "Corporate Team Managers",
+            "priority_reason": "Highest revenue potential"
+          },
+          {
+            "segment_name": "Professional Sales Users",
+            "priority_reason": "High engagement"
+          },
+          {
+            "segment_name": "Small Business Owners",
+            "priority_reason": "Growth potential"
+          }
+        ]
+      }
+    }
+  ]
+}

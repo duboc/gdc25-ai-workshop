@@ -9,6 +9,7 @@ import VersionComparisonDashboard from '../visualizations/comparison/VersionComp
 import UserStoriesDashboard from '../visualizations/stories/UserStoriesDashboard';
 import MarketingDashboard from '../visualizations/marketing/MarketingDashboard';
 import VideoAnalysisDashboard from '../visualizations/video/VideoAnalysisDashboard';
+import PromptsDashboard from '../visualizations/prompts/PromptsDashboard';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import LockIcon from '@mui/icons-material/Lock';
 import JsonInput from '../common/JsonInput';
@@ -162,6 +163,8 @@ const DashboardLayout: React.FC = () => {
         return <MarketingDashboard data={activeTabData.data} />;
       case 'video':
         return <VideoAnalysisDashboard data={activeTabData.data} />;
+      case 'prompts':
+        return <PromptsDashboard data={activeTabData.data} />;
       default:
         return (
           <Box sx={{ p: 3, textAlign: 'center' }}>

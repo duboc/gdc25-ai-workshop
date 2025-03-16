@@ -1,0 +1,9 @@
+{
+  "short_name": "Google Play Reviews",
+  "name": "Google Play Reviews UI",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,5 @@
+flask==2.3.3
+flask-cors==4.0.0
+google-play-scraper==1.2.4
+pandas==2.1.0
+gunicorn==21.2.0

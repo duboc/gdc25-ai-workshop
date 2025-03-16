@@ -91,6 +91,7 @@ export * from './comparisonTypes';
 export * from './userStoriesTypes';
 export * from './marketingTypes';
 export * from './videoTypes';
+export * from './promptsTypes';
 
 // Tab type
 export interface TabData {

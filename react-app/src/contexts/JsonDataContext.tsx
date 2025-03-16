@@ -15,15 +15,17 @@ const JsonDataContext = createContext<JsonDataContextType | undefined>(undefined
 interface JsonDataProviderProps {
   children: ReactNode;
   initialTabs?: TabData[];
+  initialActiveTab?: string;
 }
 
 export const JsonDataProvider: React.FC<JsonDataProviderProps> = ({ 
   children, 
-  initialTabs = [{ id: 'problems', label: 'Problem Analysis', data: null }]
+  initialTabs = [{ id: 'problems', label: 'Problem Analysis', data: null }],
+  initialActiveTab
 }) => {
   const [tabs, setTabs] = useState<TabData[]>(initialTabs);
-  const [activeTab, setActiveTab] = useState(initialTabs[0]?.id || 'problems');
-
+  const [activeTab, setActiveTab] = useState(initialActiveTab || initialTabs[0]?.id || 'problems');
+  
   const addTab = (tab: TabData) => {
     setTabs(prevTabs => [...prevTabs, tab]);
   };
