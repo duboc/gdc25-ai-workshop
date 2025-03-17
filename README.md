@@ -1,55 +1,147 @@
-# gdc25-ai-workshop
+# AI-Powered App Review Analysis Workshop
 
-Android App Review Analysis Workshop
-Overview
-This workshop guides participants through analyzing Android app reviews using Google AI Studio. Participants will learn how to extract insights from user reviews by using prompts with and without JSON schema configurations.
-Workshop Objectives
+![License](https://img.shields.io/github/license/duboc/gdc25-ai-workshop)
+![GDC 2025](https://img.shields.io/badge/GDC-2025-6200EE)
 
-Learn how to scrape and export app reviews from the Google Play Store
-Understand how to use Google AI Studio with different prompt types
-Practice processing structured and unstructured AI outputs
-Gain insights from app reviews to improve your Android applications
+A comprehensive workshop for game developers to analyze player feedback from Google Play Store reviews using AI. This project provides tools to scrape reviews, analyze them with AI, and visualize the results to gain actionable insights.
 
-Prerequisites
+![Workshop Banner](https://via.placeholder.com/1200x300/6200EE/FFFFFF?text=AI-Powered+App+Review+Analysis+Workshop)
 
-Google account with access to Google AI Studio
-Basic understanding of JSON format
-A computer with internet access
-The Android app package name you want to analyze
+## 📋 Overview
 
-Workshop Flow
+This workshop guides participants through analyzing Android app reviews using AI. The project consists of two main components:
 
-App Selection: Input an Android app package name
-Data Collection: Scrape customer reviews from Google Play Store
-Data Export: Download the review data as CSV
-AI Analysis: Use Google AI Studio with prepared prompts
-Result Processing: Interpret AI responses or parse JSON output
+1. **API Service (`api-play`)**: A Python Flask API that fetches reviews from the Google Play Store
+2. **UI Application (`ui-play`)**: A React-based web interface for interacting with the API and visualizing results
 
-Detailed Steps
-1. App Selection
-Identify the Android app you want to analyze. You'll need the package name (e.g., com.spotify.music for Spotify).
-How to find a package name:
+Together, these components provide a complete workflow for:
+- Collecting app reviews from Google Play Store
+- Analyzing reviews with AI using various prompt techniques
+- Visualizing insights through interactive dashboards
+- Generating actionable recommendations for app improvement
 
-Open Google Play Store
-Navigate to the app page
-Look at the URL: https://play.google.com/store/apps/details?id=**com.package.name**
-The package name is the part after "id="
+## 🏗️ Architecture
 
-2. Data Collection
-We'll use a scraping tool to collect customer reviews from the Google Play Store.
-Instructions:
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │     │                 │
+│  Google Play    │────▶│  API Service    │────▶│  UI Application │
+│  Store          │     │  (api-play)     │     │  (ui-play)      │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                                │                        │
+                                │                        │
+                                ▼                        ▼
+                        ┌─────────────────┐     ┌─────────────────┐
+                        │                 │     │                 │
+                        │  AI Analysis    │     │  Visualization  │
+                        │  (Prompts)      │     │  (Dashboards)   │
+                        │                 │     │                 │
+                        └─────────────────┘     └─────────────────┘
+```
 
-Go to [App Review Scraper Tool] (provide specific tool URL)
-Enter the package name in the designated field
-Select the number of reviews to scrape (recommend 100-500 for the workshop)
-Click "Start Scraping"
-Wait for the scraping process to complete
+## 🚀 Quick Start
 
-3. Data Export
-Once scraping is complete, download the reviews as a CSV file.
-Instructions:
+### Prerequisites
 
-On the scraper tool page, locate the "Download CSV" button
-Click to download
-Save the file to an easily accessible location on your computer
-Verify the CSV has the expected columns (typically: review_id, username, rating, date, content, etc.)
+- Python 3.8+ with pip
+- Node.js 14+ with npm
+- Google Cloud SDK (for deployment)
+
+### Local Development
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/duboc/gdc25-ai-workshop.git
+cd gdc25-ai-workshop
+```
+
+2. **Start both applications with a single command**
+
+```bash
+chmod +x start_apps.sh
+./start_apps.sh
+```
+
+This script will:
+- Set up Python virtual environment for the API
+- Install all dependencies for both API and UI
+- Start the API server on http://localhost:8080
+- Start the UI development server on http://localhost:3000
+
+3. **Access the application**
+
+Open your browser and navigate to http://localhost:3000
+
+## 🔍 Features
+
+### API Service (`api-play`)
+
+- Fetch reviews for any app on Google Play Store
+- Filter reviews by language, country, and date range
+- Return results in CSV format for easy analysis
+- RESTful API with comprehensive documentation
+
+### UI Application (`ui-play`)
+
+- **Play Scraper**: Fetch, view, and download reviews from Google Play Store
+- **Prompts**: View and use AI prompts for analyzing reviews
+- **JSON Prompts**: Structured prompts with JSON configuration for machine-readable outputs
+- **Visualization Dashboards**: Interactive visualizations for review analysis
+  - Problem Analysis
+  - Review Quality
+  - Version Comparison
+  - User Segmentation
+  - User Stories
+  - Marketing Campaign
+  - FTUE Analysis
+  - Store Analysis
+
+## 📊 Workshop Flow
+
+1. **App Selection**: Input an Android app package name
+2. **Data Collection**: Scrape customer reviews from Google Play Store
+3. **Data Export**: Download the review data as CSV
+4. **AI Analysis**: Use AI with prepared prompts
+5. **Result Processing**: Interpret AI responses or parse JSON output
+6. **Visualization**: Explore insights through interactive dashboards
+
+## 🛠️ Installation & Setup
+
+For detailed installation instructions, see:
+- [API Service Setup](api-play/README.md)
+- [UI Application Setup](ui-play/README.md)
+
+## ☁️ Deployment
+
+This project can be deployed to Google Cloud Run for production use.
+
+For detailed deployment instructions, see:
+- [API Deployment Guide](api-play/deploy.sh)
+- [UI Deployment Guide](ui-play/DEPLOYMENT.md)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔗 Resources
+
+- [Google Play Developer API](https://developers.google.com/android-publisher)
+- [Google AI Studio](https://ai.google.dev/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Flask Documentation](https://flask.palletsprojects.com/)
+
+## 📞 Contact
+
+For questions or feedback, please open an issue on this repository or contact the maintainers.
+
+---
+
+<p align="center">
+  <i>Presented at Game Developers Conference (GDC) 2025</i>
+</p>

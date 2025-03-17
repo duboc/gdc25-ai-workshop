@@ -130,5 +130,51 @@ dist
 .pnp.*
 .DS_Store
 
-## add node and react 
+## Node.js and React
 /node_modules
+/build
+/.pnp
+.pnp.js
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+## IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+## Cloud deployment
+.gcloud/
+.vercel
+.netlify
+.firebase/
+firebase-debug.log

@@ -4,7 +4,7 @@ set -e
 # Configuration
 PROJECT_ID=$(gcloud config get-value project)
 SERVICE_NAME="api-play"
-REGION="us-central1"  # Change this to your preferred region
+REGION="us-east1"  # Match the region used by the UI component
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -25,4 +25,4 @@ gcloud run deploy ${SERVICE_NAME} \
   --max-instances 10 \
   --min-instances 0
 
-echo -e "${GREEN}Deployment completed!${NC}" 
+echo -e "${GREEN}Deployment completed!${NC}"
