@@ -1,36 +1,44 @@
-Analyze the following game video, specifically focusing on the in-game store experience, to evaluate its adherence to best practices based on the criteria below.
+Create a comprehensive marketing campaign strategy based on the user feedback analysis. Format the response as a structured JSON object that outlines strategies to address the identified issues and enhance the app's appeal.
 
-For each criterion, please:
-1. **Determine if the game store implements the best practice** based on the provided description.
-2. **Provide specific observations from the video** that support your assessment of the store's implementation.
-3. **Suggest potential improvements** if the store experience falls short of best practices.
+Instructions:
+1. Create a campaign name that reflects the improvements being made to the app
+2. Define the target audience, focusing on current users who have expressed concerns and potential new users
+3. Specify campaign duration and budget range
+4. Craft an overall message that acknowledges user feedback and promises improvements
+5. Develop detailed campaign strategies, each addressing a specific theme or issue identified in the feedback
+6. For each strategy, include:
+   - A descriptive name
+   - A detailed description
+   - Specific tactics with:
+     * Tactic name
+     * Description
+     * Platforms for implementation
+     * Estimated cost
+   - Measurement metrics to evaluate success
 
-Output your analysis in JSON format, following the schema defined below.
+Ensure the campaign directly addresses the key issues identified in the user feedback, offers specific and actionable solutions, and provides realistic ways to measure success.
 
 
-1. **Promotional Flags/Badges:** Observe if the store uses promotional flags or badges to highlight items.  Are flags like "Most Popular," "Best Value," "Exclusive for You," etc., used to guide user choices?  Note which flags are used and where.
+Specific Guidance:
 
-2. **Daily/Recurring Rewards:** Identify if the store offers a daily reward or a reward that refreshes within the same day. Is this reward system clearly visible and accessible? Describe the reward system if present.
+Campaign Strategies: Develop strategies that directly correlate to the sentiment analysis findings. For example:
 
-3. **Promo Code Entry:** Check if the store includes a field or option for users to enter promotional codes. Is this option easily found?
+If "Usability" is a strong positive, create a campaign highlighting ease of use.
 
-4. **Item Sorting/Ordering:** Observe the default ordering of items in the store.
-    * Are "Most Popular" items displayed first? Is there evidence of popularity-based sorting?
-    * Are "Cheaper" items displayed first, progressing to more expensive items? Is there evidence of price-based sorting?
-    * Describe the observed item ordering and if it aligns with either popularity or price-based sorting.
+If "Performance" is a weakness, create a campaign focusing on improvements and updates.
 
-5. **Prominent Featured Items:**  Are certain items visually highlighted or positioned at the top of the store to draw attention? Describe if and how items are featured prominently.
+If there is a positive trend over time, create a campaign reinforcing the product's positive evolution.
 
-6. **Limited-Time Offers and Timers:**  Identify if the store features limited-time offers. If so, are countdown timers or clear indications of remaining time displayed for these offers?
+Tactics: For each strategy, provide a range of specific marketing tactics. These can include social media posts, in-app messaging, influencer marketing, blog posts, email campaigns, performance-focused ad campaigns, etc.
 
-7. **SKU Clarity and Bundle Details:**  Evaluate the clarity of item descriptions (SKUs).
-    * Is it clear what each item/SKU offers?
-    * For bundles, is it explicitly stated what is included within the bundle? Is the bundle content clearly listed?
+Platforms: Detail the platforms for each tactic such as Instagram, Facebook, YouTube, etc.
 
-8. **Price Variety (Cheap, Medium, Expensive):** Assess if the store offers a range of SKUs across different price points, covering a spectrum from "cheap," "medium," to "expensive" options.  Describe the price range observed.
+Measurement Metrics: For each strategy identify key performance indicators (KPIs) that will be used to measure success of each strategy and overall campaign.
 
-9. **Sub-$1 USD SKUs:** Check if there are any SKUs priced below $1 USD (or equivalent in the displayed currency). Note if such items exist.
+Tone & Style:
 
-10. **First Purchase Discount:**  Look for any indication of a first-purchase discount or special offer for new store users. Is this discount clearly communicated?
+Use a positive and solution-oriented tone.
 
-11. **Bulk Purchase Discounts (Multi-Purchase Options):**  Identify if the store offers discounts or special options for purchasing multiple quantities of the same item (bulk purchase options). Are "multi-purchase" options presented?
+Maintain consistency in language, format, and overall tone throughout the entire campaign proposal.
+
+The generated campaign proposal should be data-driven, and demonstrate an understanding of the user feedback by the sentiment analysis output.

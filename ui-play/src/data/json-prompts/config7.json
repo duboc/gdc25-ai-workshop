@@ -1,0 +1,116 @@
+{
+    "ftueAnalysis": [
+      {
+        "criterion": "Splash Screen to Interactive Game Time",
+        "meetsBestPractices": "Yes/No/Partial",
+        "observations": "Detailed observations from the video regarding loading times and transition.",
+        "suggestedImprovements": "If 'No' or 'Partial', suggest specific improvements. Otherwise, null or empty string.",
+        "numericalValue": {
+          "timeInSeconds": "[Number] Total time in seconds from splash screen to interactive game. Null if not measurable."
+        }
+      },
+      {
+        "criterion": "Loading Screen Duration",
+        "meetsBestPractices": "Yes/No/Partial",
+        "observations": "Description of loading screen durations observed, examples if too long.",
+        "suggestedImprovements": "Suggestions for reducing loading times or adding engaging elements during loading.",
+        "numericalValue": {
+          "maxDurationInSeconds": "[Number] Maximum duration of any single loading screen in seconds. Null if not measurable."
+        }
+      },
+      {
+        "criterion": "Permission Request Explanation",
+        "meetsBestPractices": "Yes/No",
+        "observations": "Description of whether explanations were provided before permission requests, and the quality of the explanation.",
+        "suggestedImprovements": "If 'No', recommend adding explanations and suggest what information to include.",
+        "numericalValue": {
+          "permissionsRequestedWithoutExplanationCount": "[Number] Count of permission requests shown without prior explanation. 0 if all explained, Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Skippable Tutorial",
+        "meetsBestPractices": "Yes/No",
+        "observations": "Indicate if the tutorial is skippable and how easy it is to find/use the skip option.",
+        "suggestedImprovements": "If 'No', strongly recommend adding a skip option.",
+        "numericalValue": {
+          "isSkippable": "[Boolean - true/false] True if tutorial is skippable, false otherwise. Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Language Consistency",
+        "meetsBestPractices": "Yes/No",
+        "observations": "Note if the game language matches the device language and if there are any inconsistencies.",
+        "suggestedImprovements": "If 'No', recommend ensuring language consistency across all text elements.",
+        "numericalValue": {
+          "isLanguageConsistent": "[Boolean - true/false] True if language is consistent, false otherwise. Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Login Requirement and Explanation",
+        "meetsBestPractices": "Yes/No/Partial",
+        "observations": "Details about login requirements, explanations (if any), and login options available.",
+        "suggestedImprovements": "Suggestions for improving login flow, explanations, or options.",
+        "numericalValue": {
+          "isLoginMandatory": "[Boolean - true/false] True if login is mandatory, false otherwise. Null if not applicable.",
+          "loginOptionsCount": "[Number] Number of login options provided if login is mandatory. Null if not mandatory or not measurable."
+        }
+      },
+      {
+        "criterion": "Automatic Google Play Services Login",
+        "meetsBestPractices": "Yes/No/Not Applicable",
+        "observations": "Describe the implementation of automatic Google Play Services login (if present and applicable).",
+        "suggestedImprovements": "Suggestions for improving automatic login or making it more user-friendly.",
+        "numericalValue": {
+          "isAutomaticGoogleLogin": "[Boolean - true/false] True if automatic Google Play Services login is implemented, false otherwise. Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Interstitials and Purchase Modals",
+        "meetsBestPractices": "Yes/No/Partial",
+        "observations": "Describe the frequency, types, and intrusiveness of interstitials and purchase modals observed.",
+        "suggestedImprovements": "Suggestions for reducing interstitial frequency, modal size, or improving their presentation.",
+        "numericalValue": {
+          "interstitialCount": "[Number] Number of interstitial ads shown during FTUE. 0 if none, Null if not applicable.",
+          "purchaseModalCount": "[Number] Number of purchase modals shown during FTUE. 0 if none, Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Options Accessibility",
+        "meetsBestPractices": "Yes/No",
+        "observations": "Describe how options are accessed and if the button/menu is easily discoverable.",
+        "suggestedImprovements": "If 'No', suggest making options more prominent and accessible.",
+        "numericalValue": {
+          "isOptionsAccessible": "[Boolean - true/false] True if options are easily accessible, false otherwise. Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Start Game Clarity",
+        "meetsBestPractices": "Yes/No",
+        "observations": "Describe how gameplay is initiated and the clarity of the 'Start Game' mechanism or entry point.",
+        "suggestedImprovements": "Suggestions for making the start game process clearer and more intuitive.",
+        "numericalValue": {
+          "isStartGameClear": "[Boolean - true/false] True if the start game process is clear, false otherwise. Null if not applicable."
+        }
+      },
+      {
+        "criterion": "User Profile Visibility & Customization",
+        "meetsBestPractices": "Yes/No/Partial",
+        "observations": "Describe the visibility and customization options of the user profile.",
+        "suggestedImprovements": "Suggestions for improving profile visibility and customization options.",
+        "numericalValue": {
+          "isProfileVisible": "[Boolean - true/false] True if profile is visible, false otherwise. Null if not applicable.",
+          "isProfileCustomizable": "[Boolean - true/false] True if profile is customizable, false otherwise. Null if not applicable."
+        }
+      },
+      {
+        "criterion": "Loading Status Feedback",
+        "meetsBestPractices": "Yes/No",
+        "observations": "Note any instances of screens without loading feedback for more than 3 seconds, and the duration.",
+        "suggestedImprovements": "Recommend adding loading indicators to screens that might take longer than 3 seconds to load.",
+        "numericalValue": {
+          "instancesWithoutFeedbackCount": "[Number] Number of instances where loading feedback was missing for >3 seconds. 0 if none, Null if not applicable."
+        }
+      }
+    ]
+  }
+  

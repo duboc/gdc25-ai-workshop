@@ -3,6 +3,14 @@ import { useTabContext } from '../contexts/TabContext';
 import PlayScraperTab from './tabs/PlayScraperTab';
 import PromptsTab from './tabs/PromptsTab';
 import JsonPromptsTab from './tabs/JsonPromptsTab';
+import ProblemAnalysisDashboard from './tabs/ProblemAnalysisDashboard';
+import ReviewQualityDashboard from './tabs/ReviewQualityDashboard';
+import VersionComparisonDashboard from './tabs/VersionComparisonDashboard';
+import UserSegmentationDashboard from './tabs/UserSegmentationDashboard';
+import UserStoriesDashboard from './tabs/UserStoriesDashboard';
+import MarketingCampaignDashboard from './tabs/MarketingCampaignDashboard';
+import FtueAnalysisDashboard from './tabs/FtueAnalysisDashboard';
+import StoreAnalysisDashboard from './tabs/StoreAnalysisDashboard';
 
 /**
  * TabContent Component
@@ -22,7 +30,15 @@ const TabContent = () => {
   const tabComponents = {
     'play-scraper': PlayScraperTab,
     'prompts': PromptsTab,
-    'json-prompts': JsonPromptsTab
+    'json-prompts': JsonPromptsTab,
+    'problem-analysis': ProblemAnalysisDashboard,
+    'review-quality': ReviewQualityDashboard,
+    'version-comparison': VersionComparisonDashboard,
+    'user-segmentation': UserSegmentationDashboard,
+    'user-stories': UserStoriesDashboard,
+    'marketing-campaign': MarketingCampaignDashboard,
+    'ftue-analysis': FtueAnalysisDashboard,
+    'store-analysis': StoreAnalysisDashboard
   };
   
   // Get the component for the active tab

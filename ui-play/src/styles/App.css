@@ -17,63 +17,289 @@
   
   --border-radius: 0.5rem;
   --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /* GDC 2025 Workshop Theme Colors */
+  --workshop-primary: #6200EE; /* Purple */
+  --workshop-secondary: #03DAC6; /* Teal */
+  --workshop-accent: #BB86FC; /* Light Purple */
+  --workshop-background: #f8f9fa;
+  --workshop-surface: #ffffff;
+  --workshop-text: #212121;
+  --workshop-text-secondary: #757575;
+  --workshop-divider: rgba(0, 0, 0, 0.12);
+  
+  /* Gradients */
+  --workshop-gradient-primary: linear-gradient(45deg, #6200EE 30%, #BB86FC 90%);
+  --workshop-gradient-secondary: linear-gradient(45deg, #03DAC6 30%, #018786 90%);
+  --workshop-gradient-accent: linear-gradient(45deg, #BB86FC 30%, #6200EE 90%);
 }
 
 /* General Layout */
 body {
   font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
-  background-color: var(--google-light-grey);
-  color: var(--google-dark-grey);
+  background-color: var(--workshop-background);
+  color: var(--workshop-text);
+  margin: 0;
+  padding: 0;
 }
 
-.app-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Header Styles */
-.app-header {
-  margin-bottom: 2rem;
-  text-align: center;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* Material UI-inspired App Bar */
+.app-bar {
+  background-color: var(--workshop-primary);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.app-header h1 {
-  color: var(--google-blue);
+.app-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-bar-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-logo {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.app-bar h1 {
+  margin: 0;
+  font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  color: white;
 }
 
-.app-header p {
-  color: var(--google-grey);
+.app-bar-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.app-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.github-link {
+  color: white;
+  font-size: 1.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.github-link:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+/* Workshop Info Banner */
+.workshop-banner {
+  background: var(--workshop-gradient-secondary);
+  color: #000;
+  padding: 0.75rem 0;
+}
+
+.workshop-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.workshop-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.workshop-detail i {
   font-size: 1.1rem;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.workshop-description {
+  margin-bottom: 2rem;
+  background-color: var(--workshop-surface);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.workshop-description h2 {
+  color: var(--workshop-primary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.workshop-description p {
+  color: var(--workshop-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.workshop-goals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.goal-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.goal-card i {
+  font-size: 2.5rem;
+  color: var(--workshop-primary);
+  margin-bottom: 1rem;
+}
+
+.goal-card h3 {
+  font-size: 1.2rem;
+  color: var(--workshop-text);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.goal-card p {
+  color: var(--workshop-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.tab-container {
+  background-color: var(--workshop-surface);
+  overflow: hidden;
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--workshop-primary);
+  color: white;
+  padding: 2rem 0 1rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.footer-logo i {
+  font-size: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Tab Navigation */
 .tab-navigation {
-  margin-bottom: 2rem;
+  background-color: var(--workshop-surface);
+  border-bottom: 1px solid var(--workshop-divider);
+}
+
+.nav-tabs {
+  border-bottom: none;
+  padding: 0 1rem;
 }
 
 .nav-tabs .nav-link {
-  color: var(--google-grey);
+  color: var(--workshop-text-secondary);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  padding: 1rem 1.5rem;
   transition: all 0.2s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-tabs .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
 }
 
 .nav-tabs .nav-link:hover {
-  color: var(--google-blue);
-  background-color: rgba(66, 133, 244, 0.05);
+  color: var(--workshop-primary);
+  background-color: transparent;
+}
+
+.nav-tabs .nav-link:hover::after {
+  background-color: rgba(98, 0, 238, 0.3);
 }
 
 .nav-tabs .nav-link.active {
-  color: var(--google-blue);
-  background-color: white;
-  border-bottom: 3px solid var(--google-blue);
+  color: var(--workshop-primary);
+  background-color: transparent;
   font-weight: 500;
+}
+
+.nav-tabs .nav-link.active::after {
+  background-color: var(--workshop-primary);
 }
 
 .nav-tabs .nav-link i {
@@ -82,10 +308,9 @@ body {
 
 /* Tab Content */
 .tab-content {
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 1.5rem;
+  background-color: var(--workshop-surface);
+  padding: 2rem;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 /* Common Container Styles */
@@ -106,19 +331,19 @@ body {
 }
 
 .tab-header h2 {
-  color: var(--google-blue);
+  color: var(--workshop-primary);
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .tab-header p {
-  color: var(--google-grey);
+  color: var(--workshop-text-secondary);
 }
 
 /* Form Styles */
 .form-container h2 {
   margin-bottom: 1.5rem;
-  color: var(--google-blue);
+  color: var(--workshop-primary);
   font-weight: 500;
 }
 
@@ -128,23 +353,23 @@ body {
 
 .form-label {
   font-weight: 500;
-  color: var(--google-dark-grey);
+  color: var(--workshop-text);
 }
 
 .form-control:focus {
-  border-color: var(--google-blue);
-  box-shadow: 0 0 0 0.2rem rgba(66, 133, 244, 0.25);
+  border-color: var(--workshop-primary);
+  box-shadow: 0 0 0 0.2rem rgba(98, 0, 238, 0.25);
 }
 
 /* Button Styles */
 .btn-primary {
-  background-color: var(--google-blue);
-  border-color: var(--google-blue);
+  background-color: var(--workshop-primary);
+  border-color: var(--workshop-primary);
 }
 
 .btn-primary:hover {
-  background-color: #3367d6;
-  border-color: #3367d6;
+  background-color: #5000d6;
+  border-color: #5000d6;
 }
 
 .btn-success {
@@ -158,19 +383,19 @@ body {
 }
 
 .btn-outline-primary {
-  color: var(--google-blue);
-  border-color: var(--google-blue);
+  color: var(--workshop-primary);
+  border-color: var(--workshop-primary);
 }
 
 .btn-outline-primary:hover {
-  background-color: var(--google-blue);
-  border-color: var(--google-blue);
+  background-color: var(--workshop-primary);
+  border-color: var(--workshop-primary);
 }
 
 /* Results Styles */
 .results-container h2 {
   margin-bottom: 1.5rem;
-  color: var(--google-blue);
+  color: var(--workshop-primary);
   font-weight: 500;
 }
 
@@ -219,7 +444,7 @@ body {
   top: 0;
   background-color: white;
   z-index: 1;
-  color: var(--google-dark-grey);
+  color: var(--workshop-text);
   font-weight: 500;
 }
 
@@ -239,17 +464,17 @@ body {
 }
 
 .page-link {
-  color: var(--google-blue);
+  color: var(--workshop-primary);
 }
 
 .page-item.active .page-link {
-  background-color: var(--google-blue);
-  border-color: var(--google-blue);
+  background-color: var(--workshop-primary);
+  border-color: var(--workshop-primary);
 }
 
 /* Prompt Tab Styles */
 .prompts-tab .nav-pills .nav-link.active {
-  background-color: var(--google-blue);
+  background-color: var(--workshop-primary);
 }
 
 .prompts-tab .card-body,
@@ -258,30 +483,123 @@ body {
 }
 
 .json-prompts-tab .card-header {
-  background-color: rgba(66, 133, 244, 0.05);
-  border-bottom: 1px solid rgba(66, 133, 244, 0.1);
+  background-color: rgba(98, 0, 238, 0.05);
+  border-bottom: 1px solid rgba(98, 0, 238, 0.1);
 }
 
 .json-prompts-tab .card-header h4 {
-  color: var(--google-blue);
+  color: var(--workshop-primary);
   font-weight: 500;
   margin-bottom: 0;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.5s ease-out;
+}
+
 /* Responsive Adjustments */
+@media (max-width: 992px) {
+  .workshop-info {
+    justify-content: flex-start;
+  }
+  
+  .workshop-detail {
+    width: calc(50% - 1rem);
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 768px) {
   .app-container {
     padding: 1rem;
+  }
+  
+  .app-bar h1 {
+    font-size: 1.2rem;
+  }
+  
+  .app-bar-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .app-logo {
+    font-size: 2rem;
   }
   
   .form-container, 
   .results-container,
   .prompts-tab .card,
   .json-prompts-tab .card {
-    padding: 1rem;
+    padding: 1.5rem;
   }
   
   .nav-tabs .nav-link {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .workshop-detail {
+    width: 100%;
+  }
+  
+  .tab-content {
+    padding: 1.5rem;
+  }
+  
+  .workshop-goals {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-bar-title {
+    gap: 0.5rem;
+  }
+  
+  .app-logo {
+    font-size: 1.5rem;
+  }
+  
+  .app-bar h1 {
+    font-size: 1rem;
+  }
+  
+  .app-bar-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
   }
 }

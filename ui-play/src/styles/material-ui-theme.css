@@ -1,0 +1,453 @@
+/**
+ * Material UI-inspired Theme CSS
+ * 
+ * This file contains global styles to give the application a Material UI look and feel.
+ */
+
+:root {
+  /* Primary color palette - Enhanced for WCAG contrast */
+  --primary-main: #6200EE; /* Darker purple for better contrast */
+  --primary-light: #9E67FF;
+  --primary-dark: #3700B3; /* Darker shade for better contrast */
+  --primary-contrast: #FFFFFF;
+  
+  /* Secondary color palette - Enhanced for WCAG contrast */
+  --secondary-main: #03DAC6; /* Adjusted teal for better contrast */
+  --secondary-light: #66FFF9;
+  --secondary-dark: #018786; /* Darker teal for better contrast */
+  --secondary-contrast: #000000;
+  
+  /* Error color palette - Enhanced for WCAG contrast */
+  --error-main: #B00020; /* Darker red for better contrast */
+  --error-light: #EF5350;
+  --error-dark: #7F0000;
+  --error-contrast: #FFFFFF;
+  
+  /* Warning color palette - Enhanced for WCAG contrast */
+  --warning-main: #F57C00; /* Darker orange for better contrast */
+  --warning-light: #FFB74D;
+  --warning-dark: #E65100;
+  --warning-contrast: #000000;
+  
+  /* Success color palette - Enhanced for WCAG contrast */
+  --success-main: #2E7D32; /* Darker green for better contrast */
+  --success-light: #60AD5E;
+  --success-dark: #005005;
+  --success-contrast: #FFFFFF;
+  
+  /* Info color palette - Enhanced for WCAG contrast */
+  --info-main: #0277BD; /* Darker blue for better contrast */
+  --info-light: #58A5F0;
+  --info-dark: #004C8C;
+  --info-contrast: #FFFFFF;
+  
+  /* Accessibility-focused color variables */
+  --focus-outline-color: #0077CC;
+  --focus-outline-width: 2px;
+  --high-contrast-outline: 2px solid #000000;
+  
+  /* Grey palette */
+  --grey-50: #FAFAFA;
+  --grey-100: #F5F5F5;
+  --grey-200: #EEEEEE;
+  --grey-300: #E0E0E0;
+  --grey-400: #BDBDBD;
+  --grey-500: #9E9E9E;
+  --grey-600: #757575;
+  --grey-700: #616161;
+  --grey-800: #424242;
+  --grey-900: #212121;
+  
+  /* Text colors */
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+  
+  /* Background colors */
+  --background-default: #FFFFFF;
+  --background-paper: #FFFFFF;
+  
+  /* Shadows */
+  --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-4: 0 12px 24px rgba(0, 0, 0, 0.1);
+  
+  /* Spacing */
+  --spacing-unit: 8px;
+  
+  /* Border radius */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-round: 50%;
+  
+  /* Font family */
+  --font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+  
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Transitions */
+  --transition-duration: 0.3s;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Apply base styles to the body */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background-color: var(--grey-50);
+  margin: 0;
+  padding: 0;
+}
+
+/* Material UI-inspired button styles */
+.btn-primary {
+  background-color: var(--primary-main);
+  border-color: var(--primary-main);
+  color: var(--primary-contrast);
+  box-shadow: var(--shadow-1);
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: var(--shadow-2);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-main);
+  border-color: var(--secondary-main);
+  color: var(--secondary-contrast);
+  box-shadow: var(--shadow-1);
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+  box-shadow: var(--shadow-2);
+}
+
+/* Material UI-inspired card styles */
+.card {
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-1);
+  border: none;
+  transition: box-shadow var(--transition-duration) var(--transition-timing);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-2);
+}
+
+.card-header {
+  background-color: var(--background-paper);
+  border-bottom: 1px solid var(--grey-200);
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+}
+
+.card-body {
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.card-footer {
+  background-color: var(--background-paper);
+  border-top: 1px solid var(--grey-200);
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+}
+
+/* Material UI-inspired form styles */
+.form-control {
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--grey-300);
+  padding: calc(var(--spacing-unit) * 1.5);
+  font-size: var(--font-size-sm);
+  transition: border-color var(--transition-duration) var(--transition-timing);
+}
+
+.form-control:focus {
+  border-color: var(--primary-main);
+  box-shadow: 0 0 0 0.2rem rgba(124, 77, 255, 0.25);
+}
+
+/* Material UI-inspired alert styles */
+.alert {
+  border-radius: var(--border-radius-medium);
+  border: none;
+  box-shadow: var(--shadow-1);
+}
+
+.alert-primary {
+  background-color: rgba(124, 77, 255, 0.1);
+  color: var(--primary-dark);
+}
+
+.alert-secondary {
+  background-color: rgba(0, 229, 255, 0.1);
+  color: var(--secondary-dark);
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-dark);
+}
+
+.alert-danger {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--error-dark);
+}
+
+.alert-warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: var(--warning-dark);
+}
+
+.alert-info {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: var(--info-dark);
+}
+
+/* Material UI-inspired badge styles */
+.badge {
+  font-weight: var(--font-weight-medium);
+  padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 1);
+  border-radius: var(--border-radius-small);
+}
+
+/* Material UI-inspired table styles */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--grey-200);
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+}
+
+.table td {
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  border-bottom: 1px solid var(--grey-200);
+}
+
+/* Material UI-inspired list styles */
+.list-group-item {
+  border: 1px solid var(--grey-200);
+  padding: calc(var(--spacing-unit) * 2);
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: var(--border-radius-medium);
+  border-top-right-radius: var(--border-radius-medium);
+}
+
+.list-group-item:last-child {
+  border-bottom-left-radius: var(--border-radius-medium);
+  border-bottom-right-radius: var(--border-radius-medium);
+}
+
+/* Material UI-inspired tab styles */
+.nav-tabs {
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.nav-tabs .nav-link {
+  color: var(--text-secondary);
+  border: none;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--primary-main);
+  border: none;
+  border-bottom: 2px solid var(--grey-300);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-main);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--primary-main);
+}
+
+/* Material UI-inspired utility classes */
+.elevation-0 {
+  box-shadow: none;
+}
+
+.elevation-1 {
+  box-shadow: var(--shadow-1);
+}
+
+.elevation-2 {
+  box-shadow: var(--shadow-2);
+}
+
+.elevation-3 {
+  box-shadow: var(--shadow-3);
+}
+
+.elevation-4 {
+  box-shadow: var(--shadow-4);
+}
+
+.rounded-sm {
+  border-radius: var(--border-radius-small);
+}
+
+.rounded-md {
+  border-radius: var(--border-radius-medium);
+}
+
+.rounded-lg {
+  border-radius: var(--border-radius-large);
+}
+
+.rounded-xl {
+  border-radius: var(--border-radius-xl);
+}
+
+.rounded-full {
+  border-radius: var(--border-radius-round);
+}
+
+/* Material UI-inspired text utilities */
+.text-primary-color {
+  color: var(--primary-main);
+}
+
+.text-secondary-color {
+  color: var(--secondary-main);
+}
+
+.text-error {
+  color: var(--error-main);
+}
+
+.text-warning {
+  color: var(--warning-main);
+}
+
+.text-success {
+  color: var(--success-main);
+}
+
+.text-info {
+  color: var(--info-main);
+}
+
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Material UI-inspired background utilities */
+.bg-primary {
+  background-color: var(--primary-main);
+  color: var(--primary-contrast);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-main);
+  color: var(--secondary-contrast);
+}
+
+.bg-error {
+  background-color: var(--error-main);
+  color: white;
+}
+
+.bg-warning {
+  background-color: var(--warning-main);
+  color: white;
+}
+
+.bg-success {
+  background-color: var(--success-main);
+  color: white;
+}
+
+.bg-info {
+  background-color: var(--info-main);
+  color: white;
+}
+
+.bg-grey-50 {
+  background-color: var(--grey-50);
+}
+
+.bg-grey-100 {
+  background-color: var(--grey-100);
+}
+
+.bg-grey-200 {
+  background-color: var(--grey-200);
+}
+
+/* Material UI-inspired animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-duration) var(--transition-timing);
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp var(--transition-duration) var(--transition-timing);
+}

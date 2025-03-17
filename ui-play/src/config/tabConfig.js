@@ -29,6 +29,54 @@ const tabConfig = [
     label: 'Prompts with Json',
     icon: 'bi bi-braces',
     description: 'Prompts with JSON configuration for structured outputs'
+  },
+  {
+    id: 'problem-analysis',
+    label: 'Problem Analysis',
+    icon: 'bi bi-exclamation-triangle',
+    description: 'Analyze user feedback and identify key issues'
+  },
+  {
+    id: 'review-quality',
+    label: 'Review Quality',
+    icon: 'bi bi-shield-check',
+    description: 'Detect spam and low-quality reviews'
+  },
+  {
+    id: 'version-comparison',
+    label: 'Version Comparison',
+    icon: 'bi bi-arrow-left-right',
+    description: 'Compare metrics across different app versions'
+  },
+  {
+    id: 'user-segmentation',
+    label: 'User Segmentation',
+    icon: 'bi bi-people',
+    description: 'Analyze different user segments and their characteristics'
+  },
+  {
+    id: 'user-stories',
+    label: 'User Stories',
+    icon: 'bi bi-book',
+    description: 'Generate user stories from feedback'
+  },
+  {
+    id: 'marketing-campaign',
+    label: 'Marketing Campaign',
+    icon: 'bi bi-megaphone',
+    description: 'Plan and analyze marketing campaigns'
+  },
+  {
+    id: 'ftue-analysis',
+    label: 'FTUE Analysis',
+    icon: 'bi bi-person-plus',
+    description: 'Analyze first-time user experience'
+  },
+  {
+    id: 'store-analysis',
+    label: 'Store Analysis',
+    icon: 'bi bi-shop',
+    description: 'Analyze in-app store performance'
   }
 ];
 

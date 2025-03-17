@@ -1,130 +1,105 @@
-# Structured Sentiment Analysis Prompt
+# Problems and Suggestions
 
-## Purpose
-This prompt is designed to analyze the sentiment of Google Play Store reviews and provide a structured JSON output with detailed sentiment analysis.
+**Objective:** Analyze user reviews from a CSV file (columns: 'content', 'score', 'at') to identify problems, suggestions, and trends over time. Deliver actionable insights for developers and product managers.
 
-## Prompt Template
+**Analysis Tasks (Ordered by Priority):**
 
-```
-Analyze the sentiment of the following Google Play Store review and provide a structured response:
+1. **Negative Review Problem Analysis:**
+    * **Sentiment-Based Negativity:**  Analyze 'content' to identify *negative* reviews (ignore 'score' for sentiment).
+    * **Problem Categorization:** Classify negative reviews into these categories:
+        * Bugs/Glitches
+        * Feature Issues
+        * Performance Problems
+        * Usability Issues
+        * Content/Quality Issues
+        * Other (please specify if possible)
+    * **Frequency Count:** Calculate the number of reviews in each problem category.
+    * **Example Reviews:** For each category, provide 2-3 example 'content' excerpts with their 'at' dates.
+    * **Time-Based Trend (Problem Categories):** Analyze if the frequency of each problem category is increasing, decreasing, or stable over time. Indicate trend direction (increasing, decreasing, stable) for each category.
+    * **Severity Classification:** Classify each problem category as 'Critical', 'Major', or 'Minor' based on its impact on user experience.
 
-Review: "{review_text}"
+2. **Suggestion & Feature Request Analysis:**
+    * **Suggestion Extraction:** Extract suggestions and feature requests from *all* reviews (positive, negative, neutral).
+    * **Suggestion Grouping:** Group extracted suggestions into logical themes (e.g., "Payment Options," "Search Functionality," "Customization"). Aim for concise theme names.
+    * **Frequency Count (Suggestions):** Count the number of reviews mentioning each suggestion group.
+    * **Prioritization (Suggestions):** Rank suggestion groups by frequency. Estimate impact (High, Medium, Low) based on review context.
+    * **Example Reviews (Suggestions):** For top suggestion groups, provide 1-2 example 'content' excerpts.
+    * **Emerging Suggestions Trend:** Identify any *new* suggestion groups that appear in later reviews (based on 'at' date).
+    * **Implementation Difficulty:** Estimate difficulty level (Easy, Medium, Hard) for each suggestion group.
 
-Your analysis should include:
-1. Overall sentiment classification
-2. Numerical sentiment score (0-1 scale)
-3. Positive aspects mentioned with confidence scores
-4. Negative aspects mentioned with confidence scores
-5. Improvement suggestions
-6. A brief summary of the user's experience
+3. **Sentiment Trend Analysis:**
+    * **Sentiment Evolution:** Track the overall sentiment (positive, negative, neutral) of reviews over time.
+    * **Provide monthly or quarterly sentiment summary if possible.**
+    * **Identify specific events or updates that might have affected sentiment.**
 
-Format your response as a valid JSON object with the following structure:
-{
-  "overall_sentiment": string,
-  "sentiment_score": number,
-  "positive_aspects": [
-    {
-      "aspect": string,
-      "confidence": number
-    }
-  ],
-  "negative_aspects": [
-    {
-      "aspect": string,
-      "confidence": number
-    }
-  ],
-  "improvement_suggestions": [string],
-  "user_experience_summary": string
-}
+4. **Audience Segmentation (Optional):**
+    * **User Type Analysis:** If possible, categorize users into groups based on their reviews (e.g., "Power Users", "Casual Users", "New Users").
+    * **Segment-Specific Issues:** Identify problems that affect specific user segments more than others.
 
-Ensure your response is valid JSON that can be parsed programmatically.
-```
+**Output Requirements:**
 
-## Example Usage
-
-```
-Analyze the sentiment of the following Google Play Store review and provide a structured response:
-
-Review: "This app is mostly good but has some annoying bugs. I love the interface and how easy it is to find what I'm looking for. However, it crashes at least once a day and sometimes loses my saved data. Would be 5 stars if these issues were fixed."
-
-Your analysis should include:
-1. Overall sentiment classification
-2. Numerical sentiment score (0-1 scale)
-3. Positive aspects mentioned with confidence scores
-4. Negative aspects mentioned with confidence scores
-5. Improvement suggestions
-6. A brief summary of the user's experience
-
-Format your response as a valid JSON object with the following structure:
-{
-  "overall_sentiment": string,
-  "sentiment_score": number,
-  "positive_aspects": [
-    {
-      "aspect": string,
-      "confidence": number
-    }
-  ],
-  "negative_aspects": [
-    {
-      "aspect": string,
-      "confidence": number
-    }
-  ],
-  "improvement_suggestions": [string],
-  "user_experience_summary": string
-}
-
-Ensure your response is valid JSON that can be parsed programmatically.
-```
-
-## Expected Output
+* **Format:** Return output in the exact JSON format specified below.
+* **Structure:** Follow this schema precisely, including all fields:
 
 ```json
-{
-  "overall_sentiment": "Mixed (Leaning Positive)",
-  "sentiment_score": 0.65,
-  "positive_aspects": [
-    {
-      "aspect": "User-friendly interface",
-      "confidence": 0.95
+  {
+    "executive_summary": "A concise 3-5 sentence summary of the major findings and recommendations",
+    "problem_analysis": {
+      "table": [
+        {
+          "category": "Bug/Glitch",
+          "frequency": 32,
+          "severity": "Critical", 
+          "example_reviews": [
+            {"content": "Example review text here", "at": "2023-10-26"},
+            {"content": "Second example review", "at": "2023-09-15"}
+          ],
+          "trend": "Increasing",
+          "affected_user_segments": ["Power Users", "New Users"]
+        }
+      ],
+      "trend_summary": "Text summary of problem trends over time.",
+      "critical_problems_count": 2,
+      "most_affected_segments": ["New Users"]
     },
-    {
-      "aspect": "Easy navigation and search functionality",
-      "confidence": 0.9
-    }
-  ],
-  "negative_aspects": [
-    {
-      "aspect": "App crashes frequently",
-      "confidence": 0.95
+    "suggestion_analysis": {
+      "table": [
+        {
+          "suggestion_group": "Improved Search",
+          "frequency": 45,
+          "estimated_impact": "High",
+          "implementation_difficulty": "Medium",
+          "example_reviews": [
+            {"content": "Example suggestion review text"},
+            {"content": "Second example suggestion review"}
+          ]
+        }
+      ],
+      "emerging_suggestions": "Text summary of emerging suggestions that appeared recently.",
+      "high_impact_count": 3,
+      "quick_wins": ["Brief description of high-impact, low-difficulty suggestions"]
     },
-    {
-      "aspect": "Data loss issues",
-      "confidence": 0.9
+    "sentiment_trend_analysis": {
+      "summary": "Overall text summary of sentiment trends",
+      "period_trends": [
+        {"period": "2023 Q1", "positive_percentage": 60, "negative_percentage": 25, "neutral_percentage": 15},
+        {"period": "2023 Q2", "positive_percentage": 55, "negative_percentage": 30, "neutral_percentage": 15}
+      ],
+      "significant_events": [
+        {"date": "2023-03-15", "event": "App update v2.0", "sentiment_impact": "Negative"},
+        {"date": "2023-06-01", "event": "Bug fix release", "sentiment_impact": "Positive"}
+      ]
     },
-    {
-      "aspect": "Reliability concerns",
-      "confidence": 0.85
-    }
-  ],
-  "improvement_suggestions": [
-    "Fix stability issues to prevent crashes",
-    "Implement better data saving/recovery mechanisms",
-    "Address bug causing data loss"
-  ],
-  "user_experience_summary": "The user generally appreciates the app's design and usability but is frustrated by technical issues that impact reliability. They indicate willingness to give a perfect rating if the stability problems are resolved."
-}
+    "user_segments": {
+      "identified_segments": ["Power Users", "Casual Users", "New Users"],
+      "segment_specific_issues": [
+        {"segment": "New Users", "top_issues": ["Onboarding Problems", "Feature Discovery"]}
+      ]
+    },
+    "actionable_insights": [
+      "First specific, actionable recommendation based on the data",
+      "Second specific, actionable recommendation",
+      "Third specific, actionable recommendation"
+    ]
+  }
 ```
-
-## When to Use
-Use this prompt when you need structured, machine-readable sentiment analysis of user reviews. The JSON output format makes it easy to process the results programmatically, enabling automated analysis of large numbers of reviews, trend identification, and integration with other systems.
-
-## Configuration Options
-This prompt can be customized with the following parameters:
-
-- **include_suggestions**: Boolean flag to include or exclude improvement suggestions (default: true)
-- **sentiment_scale**: The scale to use for sentiment classification ("3-point" or "5-point", default: "3-point")
-
-See the accompanying JSON configuration file for more details.

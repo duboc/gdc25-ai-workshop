@@ -1,0 +1,422 @@
+{
+    "analysis_metadata": {
+      "analysis_date": "2025-03-16T03:46:14.724Z",
+      "app_name": "Kingdom Rush",
+      "date_range": {
+        "end_date": "2025-03-15T03:03:22Z",
+        "start_date": "2025-02-19T18:04:17Z"
+      },
+      "total_reviews_analyzed": 100,
+      "versions_included": [
+        "6.2.00",
+        "5.8.02",
+        "5.6.10",
+        "6.1.24"
+      ]
+    },
+    "cross_segment_analysis": {
+      "common_patterns": [
+        {
+          "affected_segments": [
+            "Nostalgic Veterans",
+            "Casual Enjoyers"
+          ],
+          "description": "Both Nostalgic Veterans and Casual Enjoyers frequently express positive sentiment and mention fun/enjoyment.",
+          "pattern": "High positive sentiment across multiple segments."
+        },
+        {
+          "affected_segments": [
+            "Frustrated Players"
+          ],
+          "description": "Show consistently negative sentiment with mentions of difficulty and sometimes, bugs",
+          "pattern": "High negative feedback"
+        }
+      ],
+      "key_differentiators": [
+        {
+          "description": "Nostalgic players mention their history and fond memories with the game much more frequently than other segments, reflecting a long-term relationship with the franchise.",
+          "factor": "Nostalgia",
+          "segment_comparison": [
+            {
+              "segment_name": "Nostalgic Veterans",
+              "value": "High"
+            },
+            {
+              "segment_name": "Casual Enjoyers",
+              "value": "Low"
+            },
+            {
+              "segment_name": "Frustrated Players",
+              "value": "Low"
+            }
+          ]
+        },
+        {
+          "description": "Casual players often praise the game's lack of intrusive ads, a characteristic not as highlighted by other user segments.",
+          "factor": "Ads/Monetization",
+          "segment_comparison": [
+            {
+              "segment_name": "Casual Enjoyers",
+              "value": "Very Positive"
+            },
+            {
+              "segment_name": "Nostalgic Veterans",
+              "value": "Neutral"
+            },
+            {
+              "segment_name": "Frustrated Players",
+              "value": "Neutral"
+            }
+          ]
+        }
+      ],
+      "version_specific_insights": [
+        {
+          "key_finding": "Version 6.2.00 receives the most reviews and generally positive feedback, but also includes some reports of lost purchased content.",
+          "segment_impact": [
+            {
+              "impact_description": "Positive impact on Casual Enjoyers due to fun and ad-free gameplay.",
+              "impact_score": 0.8,
+              "segment_name": "Casual Enjoyers"
+            },
+            {
+              "impact_description": "Mixed impact on Nostalgic Veterans, with some experiencing lost content.",
+              "impact_score": 0.5,
+              "segment_name": "Nostalgic Veterans"
+            },
+             {
+              "impact_description": "Negative impact on Frustrated Players.",
+              "impact_score": 0.2,
+              "segment_name": "Frustrated Players"
+            }
+          ],
+          "version": "6.2.00"
+        }
+      ]
+    },
+    "recommendations": [
+      {
+        "expected_impact": {
+          "impact_magnitude": "significant",
+          "metrics_affected": [
+            "User Retention",
+            "App Store Rating"
+          ]
+        },
+        "priority": "high",
+        "rationale": "Addressing the issue of lost content, particularly for Nostalgic Veterans, is crucial for maintaining trust and retaining long-term players.",
+        "recommendation": "Investigate and resolve the issue causing users to lose access to previously purchased content.  Provide a clear and easy way for affected users to restore their purchases.",
+        "segment_target": "Nostalgic Veterans"
+      },
+      {
+        "expected_impact": {
+          "impact_magnitude": "moderate",
+          "metrics_affected": [
+            "User Engagement",
+            "App Store Rating"
+          ]
+        },
+        "priority": "medium",
+        "rationale": "Creating a more balanced difficulty curve in the game to make it more accessible.",
+        "recommendation": "Adding easy difficulty to first levels.",
+        "segment_target": "Frustrated Players"
+      },
+          {
+        "expected_impact": {
+          "impact_magnitude": "moderate",
+          "metrics_affected": [
+            "User Engagement",
+            "Content satisfaction"
+          ]
+        },
+        "priority": "medium",
+        "rationale": "Keep users engaged for a longer time.",
+        "recommendation": "Develop and release new levels or game modes.",
+        "segment_target": "Casual Enjoyers, Nostalgic Veterans"
+      }
+    ],
+    "user_segments": [
+      {
+        "common_problems": [
+          {
+            "example_reviews": [
+              {
+                "content_excerpt": "for some reason its do not showing character that I have purchased.",
+                "review_id": "dc1cdd09-f10f-46a3-a8b8-caf4e1de6815"
+              },
+               {
+                "content_excerpt": "I like this game very well but i stop playing for a while and deleted it but when i installed it back some of my heroes is gone it was a bundle that has thor, oni, and ignus.",
+                "review_id": "90a82f30-02ec-4b99-83a7-6d0d4fc6d9d1"
+              }
+            ],
+            "frequency": 0.02,
+            "problem_category": "Bugs/Technical Issues"
+          }
+        ],
+        "engagement_level": {
+          "high_engagement": 0.1,
+          "low_engagement": 0.9
+        },
+        "most_common_themes": [
+          {
+            "frequency": 0.45,
+            "representative_quotes": [
+              {
+                "quote": "Love this game , i used to play it as a kid 10/10",
+                "review_id": "0b408a7c-4f0c-480c-8fa4-4bf57b1bae10",
+                "sentiment": "positive"
+              },
+              {
+                "quote": "Nostalgia 100%",
+                "review_id": "71f6f463-974d-47f9-8fd5-0c7e1acfac5f",
+                "sentiment": "positive"
+              }
+            ],
+            "theme": "nostalgia"
+          },
+          {
+            "frequency": 0.70,
+            "representative_quotes": [
+             {
+                "quote": "Fantastic game.",
+                "review_id": "39fb6782-8fc8-493a-acdd-f089f5430a14",
+                "sentiment": "positive"
+              },
+              {
+                "quote": "I absolutely adore this game.",
+                "review_id": "fc88ab3a-61da-44d2-84d2-e5fc4dac04ab",
+                "sentiment": "positive"
+              }
+            ],
+            "theme": "fun/enjoyment"
+          }
+        ],
+        "primary_characteristics": [
+          "Long-term players",
+          "High positive sentiment",
+          "Frequent mentions of nostalgia"
+        ],
+        "rating_distribution": {
+          "detractors": 0.0,
+          "neutrals": 0.05,
+          "promoters": 0.95
+        },
+        "review_length_distribution": {
+          "long": 0.25,
+          "medium": 0.5,
+          "short": 0.25
+        },
+        "segment_name": "Nostalgic Veterans",
+        "segment_size": {
+          "count": 40,
+          "percentage": 0.4
+        },
+        "sentiment_distribution": {
+          "negative": 0.02,
+          "neutral": 0.08,
+          "positive": 0.90
+        },
+        "specific_features_mentioned": [
+          {
+            "feature": "Tesla x104",
+            "mention_count": 1,
+            "sentiment_score": 0.8
+          }
+        ],
+        "time_trends": [
+          {
+            "average_rating": 4.8,
+            "average_sentiment": 0.85,
+            "review_count": 10,
+            "time_period": "2025-02-20"
+          },
+            {
+            "average_rating": 4.9,
+            "average_sentiment": 0.9,
+            "review_count": 30,
+            "time_period": "2025-03"
+          }
+        ],
+        "version_distribution": [
+          {
+            "percentage": 0.85,
+            "version": "6.2.00"
+          },
+          {
+            "percentage": 0.05,
+            "version": "5.8.02"
+          },
+             {
+            "percentage": 0.05,
+            "version": "5.6.10"
+          }
+        ]
+      },
+      {
+        "common_problems": [],
+        "engagement_level": {
+          "high_engagement": 0.05,
+          "low_engagement": 0.95
+        },
+        "most_common_themes": [
+          {
+            "frequency": 0.85,
+            "representative_quotes": [
+              {
+                "quote": "It's a pretty nice game",
+                "review_id": "c0bec4be-9cb8-4ea2-bd35-15913f373722",
+                "sentiment": "positive"
+              },
+              {
+                "quote": "Fun game, nice progression, would recommend",
+                "review_id": "7bb4b103-d943-4d22-80fc-8b15ed74270b",
+                "sentiment": "positive"
+              }
+            ],
+            "theme": "fun/enjoyment"
+          },
+          {
+            "frequency": 0.65,
+             "representative_quotes": [
+              {
+                "quote": "No ads, free, fun.",
+                "review_id": "6c6ff8e4-79d1-4c34-b6ed-ba3fb16cd80b",
+                "sentiment": "positive"
+              }
+            ],
+            "theme": "ads/monetization"
+          }
+        ],
+        "primary_characteristics": [
+          "Appreciate ad-free experience",
+          "Enjoyable gameplay",
+          "Shorter reviews"
+        ],
+        "rating_distribution": {
+          "detractors": 0.0,
+          "neutrals": 0.1,
+          "promoters": 0.9
+        },
+        "review_length_distribution": {
+          "long": 0.15,
+          "medium": 0.35,
+          "short": 0.50
+        },
+        "segment_name": "Casual Enjoyers",
+        "segment_size": {
+          "count": 55,
+          "percentage": 0.55
+        },
+        "sentiment_distribution": {
+          "negative": 0.0,
+          "neutral": 0.05,
+          "positive": 0.95
+        },
+        "specific_features_mentioned": [],
+        "time_trends": [
+          {
+            "average_rating": 4.9,
+            "average_sentiment": 0.92,
+            "review_count": 55,
+            "time_period": "2025-03"
+          }
+        ],
+        "version_distribution": [
+          {
+            "percentage": 0.95,
+            "version": "6.2.00"
+          },
+          {
+            "percentage": 0,
+            "version": "5.8.02"
+          },
+           {
+            "percentage": 0.05,
+            "version": "6.1.24"
+          }
+        ]
+      },
+      {
+        "common_problems": [
+            {
+            "example_reviews": [
+              {
+                "content_excerpt": "Fun for the first 3 or 4 levels but even the easy difficulty is too hard",
+                "review_id": "986e5796-31e0-4297-be03-3870c2ae41af"
+              }
+            ],
+            "frequency": 0.04,
+            "problem_category": "difficulty"
+          }
+        ],
+        "engagement_level": {
+          "high_engagement": 0.0,
+          "low_engagement": 1.0
+        },
+        "most_common_themes": [
+         {
+            "frequency": 0.05,
+            "representative_quotes": [
+              {
+                "quote": "for some reason its do not showing character that I have purchased.",
+                "review_id": "dc1cdd09-f10f-46a3-a8b8-caf4e1de6815",
+                "sentiment": "negative"
+              }
+            ],
+            "theme": "bugs/technical_issues"
+          },
+          {
+            "frequency": 0.5,
+            "representative_quotes": [
+              {
+                "quote": "Fun for the first 3 or 4 levels but even the easy difficulty is too hard",
+                "review_id": "986e5796-31e0-4297-be03-3870c2ae41af",
+                "sentiment": "negative"
+              }
+            ],
+            "theme": "difficulty"
+          }
+        ],
+        "primary_characteristics": [
+          "Low ratings",
+          "Complaints about difficulty",
+          "Mentions of bugs"
+        ],
+        "rating_distribution": {
+          "detractors": 0.75,
+          "neutrals": 0.25,
+          "promoters": 0.0
+        },
+        "review_length_distribution": {
+          "long": 0.5,
+          "medium": 0.25,
+          "short": 0.25
+        },
+        "segment_name": "Frustrated Players",
+        "segment_size": {
+          "count": 5,
+          "percentage": 0.05
+        },
+        "sentiment_distribution": {
+          "negative": 0.75,
+          "neutral": 0.25,
+          "positive": 0.0
+        },
+        "specific_features_mentioned": [],
+        "time_trends": [
+          {
+             "average_rating": 1.66,
+            "average_sentiment": 0,
+            "review_count": 3,
+            "time_period": "2025-03"
+          }
+        ],
+        "version_distribution": [
+          {
+            "percentage": 1.0,
+            "version": "6.2.00"
+          }
+        ]
+      }
+    ]
+  }

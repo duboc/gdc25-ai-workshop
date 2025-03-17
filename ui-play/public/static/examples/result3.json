@@ -1,0 +1,48 @@
+{
+    "best_sentiment": {
+      "app_version": "1.3",
+      "sentiment_summary": "Version 1.3 maintained a high level of positive sentiment.  Users continued to praise the game's fun factor and cross-platform compatibility.  There were requests for improved controls and some reported achievement/progress reset issues, but the overall reception remained strongly positive, solidifying its place as a top-performing version."
+    },
+    "version_history": [
+      {
+        "app_version": "1.4",
+        "positive_sentiment_score": 7,
+        "sentiment": "positive",
+        "sentiment_summary": "Version 1.4 received a mix of positive and negative feedback. Positive reviews highlight the game's fun factor, open-source nature, and lack of ads/microtransactions. Negative reviews often cite issues with controls, particularly on TV remotes and comparisons to the PC version, occasional glitches, and requests for updates or new content."
+      },
+      {
+        "app_version": "1.3",
+        "positive_sentiment_score": 9,
+        "sentiment": "positive",
+        "sentiment_summary": "Version 1.3 received overwhelmingly positive feedback.  Users praised the game as fun, well-ported from desktop, and appreciated the lack of ads and microtransactions.  Some minor issues were reported, such as occasional progress resets and requests for improved controls, but the overall sentiment was very positive."
+      },
+      {
+        "app_version": "1.2",
+        "positive_sentiment_score": 8,
+        "sentiment": "positive",
+        "sentiment_summary": "Version 1.2 continued to receive positive reviews, with users praising the game's fun factor, cross-platform nature, and lack of ads.  Some criticism focused on controls, optimization, and occasional bugs, but the overall sentiment remained strongly positive.  The online multiplayer aspect was highlighted, although some users experienced issues with it."
+      },
+      {
+        "app_version": "1.1",
+        "positive_sentiment_score": 8,
+        "sentiment": "positive",
+        "sentiment_summary": "Version 1.1 maintained a positive reception.  Users enjoyed the game, particularly its nostalgic value and cross-platform availability.  Criticisms included control issues, particularly the combination of steering and throttle, and occasional bugs or crashes.  The open-source nature of the game was frequently praised."
+      },
+      {
+        "app_version": "1.0",
+        "positive_sentiment_score": 7,
+        "sentiment": "positive",
+        "sentiment_summary": "Version 1.0 had a generally positive reception, with users appreciating the game's fun factor, open-source nature, and lack of ads.  However, there were recurring complaints about the controls, particularly the steering and throttle combination, and some reports of performance issues.  The comparison to Mario Kart was frequent."
+      },
+      {
+        "app_version": "0.9.3",
+        "positive_sentiment_score": 8,
+        "sentiment": "positive",
+        "sentiment_summary": "Version 0.9.3 received generally positive feedback. Users enjoyed the game, particularly its open-source nature, multiplayer capabilities, and similarity to Mario Kart.  Some comments mentioned control difficulties and a desire for online multiplayer, which was later addressed in subsequent versions."
+      }
+    ],
+    "worst_sentiment": {
+      "app_version": "1.4",
+      "sentiment_summary": "Version 1.4 had the most mixed reception compared to other versions.  While many users still enjoyed the game, the frequency of complaints about controls, particularly with TV remotes, and some technical issues, brought down the overall sentiment compared to versions like 1.3."
+    }
+  }

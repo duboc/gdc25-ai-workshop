@@ -1,0 +1,276 @@
+{
+    "summary": {
+      "theme_breakdown": {
+        "counts_by_theme": {
+          "example_theme_name": 123
+          },
+        "points_by_theme": {
+          "example_theme_name": 123
+        }
+       },
+      "total_stories": 12,
+      "total_story_points": 46
+    },
+    "themes": [
+      {
+        "name": "Gameplay",
+        "stories": [
+          {
+            "acceptance_criteria": [
+              "The game should maintain a consistent level of challenge.",
+              "Difficulty options should be well-balanced."
+            ],
+            "as_a": "Player",
+            "i_want": "a balanced difficulty curve",
+            "priority": "Medium",
+            "so_that": "I can enjoy the game without it being too easy or too hard",
+            "story_points": 5,
+            "supporting_reviews": [
+              "Pretty fun game. Challenging yet beatable",
+              "Fun for the first 3 or 4 levels but even the easy difficulty is too hard",
+              "It's a pretty fun TD game, very simple strategy that takes critical thinking as the levels get harder."
+            ]
+          },
+          {
+            "acceptance_criteria": [
+              "New levels should be added to the game.",
+              "The new content is engaging and challenging."
+            ],
+            "as_a": "Long-time Player",
+            "i_want": "more levels and content",
+            "priority": "Medium",
+            "so_that": "I can continue enjoying the game",
+            "story_points": 8,
+            "supporting_reviews": [
+              "Game is great but there's not enough content",
+              "Less level",
+              "Love all Kingdom Rush games, I've played them all several times. Please make more! This original one is my favorite though, just wish there were more levels."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ads",
+        "stories": [
+          {
+            "acceptance_criteria": [
+              "The game should remain free of intrusive ads.",
+              "Any ads should not disrupt gameplay."
+            ],
+            "as_a": "Player",
+            "i_want": "a game without annoying ads",
+            "priority": "High",
+            "so_that": "I can enjoy an uninterrupted gaming experience",
+            "story_points": 2,
+            "supporting_reviews": [
+              "No ads, free, fun.",
+              "Great game without annoying ads",
+              "Good killing time game. Not a lot of adds.",
+              "I was looking for a casual game that doesn't have ads popping up everytime for some double rewards and stuff. And this is a perfect game. No forced ads at all and the game play and difficulty is also well balanced.",
+                "Love it. No ads just clean and happy gaming"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Technical Issues",
+        "stories": [
+          {
+            "acceptance_criteria": [
+              "Purchased characters should always be accessible.",
+              "Account synchronization should work correctly."
+            ],
+            "as_a": "Player",
+            "i_want": "to access my purchased characters",
+            "priority": "High",
+            "so_that": "I don't lose my in-game purchases",
+            "story_points": 5,
+            "supporting_reviews": [
+              "for some reason its do not showing character that I have purchased. when deleting my 2nd g mail it showed again. the problem is I can't access my paid character when login in 2nd Gmail."
+            ]
+          },
+          {
+            "acceptance_criteria": [
+                "Game progress should be restorable after reinstalling the app",
+              "Lost progress should be recoverable"
+            ],
+            "as_a": "Player",
+            "i_want": "lost heroes to be restored or a way for the user to self-restore",
+            "priority": "High",
+            "so_that": "users do not lose progress when they reinstall the app",
+            "story_points": 5,
+            "supporting_reviews": [
+              "I like this game very well but i stop playing for a while and deleted it but when i installed it back some of my heroes is gone it was a bundle that has thor, oni, and ignus. Hopping for some help thank you"
+            ]
+          },
+           {
+            "acceptance_criteria": [
+                "Game should resume correctly after being minimized",
+              "Progress shouldn't be lost"
+            ],
+            "as_a": "Player",
+            "i_want": "the game to not reset progress when minimized",
+            "priority": "High",
+            "so_that": "I can easily switch apps and not lose progress.",
+            "story_points": 3,
+            "supporting_reviews": [
+              "The only thing I don't like about this one (which is why it gets 4 stars ), is that if you leave the game to answer a text message or do something else, you can lose your game. For a few seconds is okay, but after that it sometimes restarts, so you loose your progress in the particular level you're on."
+            ]
+          }
+        ]
+      },
+        {
+        "name": "Game Improvements",
+        "stories": [
+          {
+            "acceptance_criteria": [
+              "The suggested tower upgrades should be considered",
+              "New upgrade options should be balanced."
+            ],
+            "as_a": "Player",
+            "i_want": "new upgrade options for towers",
+            "priority": "Low",
+            "so_that": "the game has more strategic depth",
+            "story_points": 5,
+            "supporting_reviews": [
+              "This is good but we need new upgrade of Tesla x104 like knight barracks. Tesla can multiple lightning chance 100% see my comments recommend"
+            ]
+          }
+        ]
+      },
+       {
+        "name": "General Praise",
+        "stories": [
+          {
+             "acceptance_criteria": [
+              "The game's overall positive attributes are acknowledged."
+             ],
+            "as_a": "Developer",
+            "i_want": "to see general praise for the game",
+            "priority": "Low",
+            "so_that": "I can understand what aspects players enjoy most",
+            "story_points": 1,
+            "supporting_reviews": [
+              "Fantastic game.",
+                "Best TD game",
+              "Woaah",
+              "Nostalgia 100%",
+                "A good game",
+                "I absolutely adore this game. It has fun gameplay, you can have up to three different save slots, and it's easy to learn how to play!",
+                 "Love this game , i used to play it as a kid 10/10",
+              "Great game",
+              "Fun game, nice progression, would recommend",
+              "excellent game. fun to play. easy to pick up. hard to put down sometimes.",
+              "Great game.",
+              "Pretty fun game. Challenging yet beatable",
+              "Good game. Take my mcdollars",
+               "good game without any purchase needed. Thanks for the selfless service guys",
+              "Great game",
+               "You know, i've played this game multiple times over the past like ten years, and I don't think i've ever rated it. So here's 5 stars for being a great company that makes damn good tower defense games!",
+              "Super",
+               "One word : AWESOME 🔥",
+                "Best",
+              "Such a great game!I'm not a Facebook mom yall",
+               "Not what I was expecting. Fun and challenging.",
+              "It is so good",
+               "Very good, I liked it",
+               "Sewwt and good 💯😊",
+               "Brilliant brilliant absolutely brilliant loving the game",
+               "Legendary game,",
+              "The best",
+              "Best game l ever play",
+              "Awesome",
+                 "Superm!10/10",
+              "Cooool",
+              "Purna",
+                "Childhoods best and teenhoods best",
+               "The game is good. The challenges are quite hard. I haven't found anything that I dislike so far. GG's.",
+               "My legend game from PC,",
+              "Great",
+                 "Only Sigma Alpha males play this game. I am neither and yet I still love this game, OwO",
+              "Rek sop",
+               "Really fun game!",
+              "Love this game. Well done.",
+               "The gold standard for what mobile games should be. No pervasive, predatory ads, wholesome content, and actual strategy-based gameplay that can keep you busy.",
+               "The best game l ever seen",
+               "Greatest single player game literally no issue",
+              "Good",
+                "Unique, loved playing years ago on PC.",
+              "Really enjoy playing this game,",
+                 "This is the greatest tower defense game of all time. Perfect accuracy. I am nostalgic for such a time in gaming, and this is actually mobile gaming. 10/10 would play again.",
+               "Cool",
+              "very good game",
+               "5 stars for \"All your base are belong to us\"",
+              "Some of my favorite games since I was a kid,",
+                "So good,",
+               "Good game tbh",
+               "I absolutely love this game Tower Defense done correctly",
+                "Really Nice,",
+                "Exceptional.",
+               "Really love the game! Not so easy TD",
+               "Fun Kills Time",
+               "Fun",
+              "BEST",
+                "This game is full of nostelgia for me",
+               "Happy",
+              "Very fun and challenging, super simple to get the hang of yet you can approach it with a variety of techniques. I really enjoy this game and it has lots of cute little hidden details.",
+               "It's probably the best tower defence game I've ever played.",
+                  "Honestly, its one of the hardest TD games ive ever played. You really need a lot of strategy to win this game, its overall really fun and there are harder difficulties to make your life a living hell :)",
+              "Nice,",
+                 "Great game,",
+              "I've been playing this game for years and I still keep coming back to it. All of the games in this series are amazing, and I eagerly anticipate everything the series drops. Start here if you like tower defense games that don't try to sell you stuff or make you watch ANY ads at all. It's literally amazing. If you have a lot of time to kill I'd highly recommend this series of games.",
+               "Fun",
+              "Fun tower defense.",
+                "This game make me stressssssssssss. Other than that it's pretty good and fun to play. Good thing it's offline.",
+               "Really nice game,",
+              "Been playing this games for such long time. Recommended,",
+                "One of the best I played in a while,",
+              "Good game that is not pay to win,",
+                 "Ironhide game studies create the best games in the world. They are soo fun to play.",
+              "very good game good should play with friends will be more fun than playing alone makes me autistic",
+                "Lot of fun!",
+              "Oh yeah🤤🤤",
+               "It's fun to play and to kill time if you have nothing to do or are waiting at a doctors office or something like that. It's easy to learn the basic strategy and the rest is just fun"
+            ]
+          }
+        ]
+      },
+         {
+        "name": "Graphics",
+        "stories": [
+             {
+             "acceptance_criteria": [
+              "Graphics are acknowledged."
+             ],
+            "as_a": "Developer",
+            "i_want": "to see feedback on game graphics",
+            "priority": "Low",
+            "so_that": "I can understand what aspects players about the art style",
+            "story_points": 1,
+            "supporting_reviews": [
+              "Graphics @ but ∃! gameplay"
+            ]
+          }
+        ]
+         },
+          {
+        "name": "UX",
+        "stories": [
+             {
+            "acceptance_criteria": [
+              "The game is generally easy to learn and play."
+            ],
+            "as_a": "New Player",
+            "i_want": "an easy to learn game",
+            "priority": "Medium",
+            "so_that": "I can enjoy the game without frustration",
+            "story_points": 3,
+            "supporting_reviews": [
+                "It's a pretty nice game",
+              "df394c78-2b13-4269-9036-47c5d24ce26d"
+            ]
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+      "campaign_name": {
+        "type": "string"
+      },
+      "target_audience": {
+        "type": "string"
+      },
+      "campaign_duration": {
+        "type": "string"
+      },
+      "campaign_budget": {
+        "type": "string"
+      },
+      "overall_message": {
+        "type": "string"
+      },
+      "campaign_strategies": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "strategy_name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "tactics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tactic_name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "platforms": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "estimated_cost": {
+                    "type": "string"
+                  }
+                },
+                "required": ["tactic_name", "description", "platforms", "estimated_cost"]
+              }
+            },
+            "measurement_metrics": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": ["strategy_name", "description", "tactics", "measurement_metrics"]
+        }
+      }
+    },
+    "required": [
+      "campaign_name",
+      "target_audience",
+      "campaign_duration",
+      "campaign_budget",
+      "overall_message",
+      "campaign_strategies"
+    ],
+    "propertyOrdering": [
+      "campaign_name",
+      "target_audience",
+      "campaign_duration",
+      "campaign_budget",
+      "overall_message",
+      "campaign_strategies"
+    ]
+  }

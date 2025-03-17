@@ -1,0 +1,325 @@
+{
+    "authenticity_indicators": {
+      "detailed_feedback": [
+        {
+          "feedback_quality_score": 7.500000000000000e-01,
+          "highlights": [
+            "You know, i've played this game multiple times over the past like ten years, and I don't think i've ever rated it.",
+            "So here's 5 stars for being a great company that makes damn good tower defense games!"
+          ],
+          "review_id": "334a981c-c13a-4011-9932-12117848679f"
+        },
+        {
+          "feedback_quality_score": 6.800000000000000e-01,
+          "highlights": [
+            "I've been playing this game for years and I still keep coming back to it.",
+            "All of the games in this series are amazing, and I eagerly anticipate everything the series drops.",
+            "Start here if you like tower defense games that don't try to sell you stuff or make you watch ANY ads at all.",
+            "It's literally amazing.",
+            "If you have a lot of time to kill I'd highly recommend this series of games."
+          ],
+          "review_id": "5a98425f-95b4-451f-bbe4-20a33207ff68"
+        }
+      ],
+      "specific_features": [
+        {
+          "context": "for some reason its do not showing character that I have purchased. when deleting my 2nd g mail it showed again. the problem is I can't access my paid character when login in 2nd Gmail.",
+          "feature_mentioned": "character purchasing",
+          "review_id": "dc1cdd09-f10f-46a3-a8b8-caf4e1de6815"
+        },
+        {
+          "context": "I like this game very well but i stop playing for a while and deleted it but when i installed it back some of my heroes is gone it was a bundle that has thor, oni, and ignus. Hopping for some help thank you",
+          "feature_mentioned": "heroes bundle (thor, oni, ignus)",
+          "review_id": "90a82f30-02ec-4b99-83a7-6d0d4fc6d9d1"
+        }
+      ]
+    },
+    "behavioral_patterns": {
+      "multiple_reviews": {
+        "users": []
+      },
+      "rating_anomalies": {
+        "sudden_spikes": []
+      },
+      "similar_reviews": {
+        "clusters": []
+      }
+    },
+    "content_analysis": {
+      "sentiment_discrepancies": {
+        "examples": [],
+        "total_found": 0
+      },
+      "suspicious_patterns": {
+        "emoji_abuse": [
+          {
+            "content": "Oh yeah🤤🤤",
+            "emoji_count": 2,
+            "review_id": "e6ba098a-282c-497d-823b-2fe439d7e918"
+          }
+        ],
+        "generic_comments": [
+          {
+            "content": "Great game",
+            "frequency": 3,
+            "review_id": "ec64cda0-ccb7-491e-b61b-7bcbb6b50b83"
+          },
+          {
+            "content": "Great game.",
+            "frequency": 3,
+            "review_id": "00e62c3a-b1da-4173-a056-1b2c6fc6af56"
+          },
+          {
+            "content": "Great game",
+            "frequency": 3,
+            "review_id": "c90308a0-14d4-4709-ae25-8a789f5521ba"
+          },
+          {
+            "content": "Good game.",
+            "frequency": 2,
+            "review_id": "f58335f9-7b6a-4a86-8e01-cc64c8505181"
+          },
+          {
+            "content": "Good game",
+            "frequency": 2,
+            "review_id": "a014878f-47f6-4c62-a6f1-7150904bbf0e"
+          },
+        {
+            "content": "Good",
+            "frequency": 1,
+            "review_id": "4b621c76-c518-49f5-a4bc-f0b1697b1914"
+          },
+           {
+            "content": "Good",
+            "frequency": 1,
+            "review_id": "8c7c300c-2362-4a10-87d6-c94312b8de23"
+          },
+          {
+              "content": "Awesome",
+              "frequency": 2,
+              "review_id": "256c4867-9677-422d-9e45-2aad957dc6b2"
+          },
+           {
+              "content": "Awesome",
+              "frequency": 2,
+              "review_id": "4e22adb4-fdab-4f5c-a099-ffdcc4cc5503"
+          },
+          {
+            "content":"Best",
+            "frequency": 2,
+            "review_id": "a120cdc7-29a6-4da7-a9cb-0aeb13302840"
+          },
+          {
+            "content":"Best",
+            "frequency": 2,
+            "review_id": "58a16c31-dc55-4b93-a52c-ee1fc516ab09"
+          },
+          {
+            "content": "Fun",
+            "frequency": 2,
+            "review_id": "7ab63498-8419-4369-8489-ff92348b5607"
+          },
+          {
+            "content": "Fun",
+            "frequency": 2,
+            "review_id": "3f877103-375d-4a80-8e1e-2a5351abe933"
+          }
+        ],
+        "short_reviews": [
+          {
+            "content": "Woaah",
+            "length": 5,
+            "rating": 5,
+            "review_id": "cc8a86d6-8aa4-40a5-8f46-e2ce53e2c44e"
+          },
+          {
+            "content": "Super",
+            "length": 5,
+            "rating": 5,
+            "review_id": "85a00c87-a028-4529-ab53-0c9f61a2083d"
+          },
+          {
+            "content": "Best",
+            "length": 4,
+            "rating": 5,
+            "review_id": "a120cdc7-29a6-4da7-a9cb-0aeb13302840"
+          },
+          {
+            "content": "Cooool",
+            "length": 6,
+            "rating": 5,
+            "review_id": "3b5cedb9-dde7-4aec-8a7d-0c7293a5a51f"
+          },
+          {
+              "content":"Great",
+              "length": 5,
+              "rating": 5,
+              "review_id": "c5f532d6-a384-4f88-82f0-b50a14507e20"
+          },
+          {
+            "content": "Purna",
+            "length": 5,
+            "rating": 5,
+            "review_id": "e39116d2-41eb-4851-adde-867f701e3776"
+          },
+            {
+            "content": "Happy",
+            "length": 5,
+            "rating": 5,
+            "review_id": "e200159d-779d-4f02-bd9b-64508de6ccb6"
+          },
+            {
+            "content": "Cool",
+            "length": 4,
+            "rating": 5,
+            "review_id": "c9d57e54-c970-44bc-8a7a-bcca5a11e003"
+          }
+        ]
+      }
+    },
+    "meta_analysis": {
+      "analysis_date": "2025-03-15T14:30:00Z",
+      "time_period": {
+        "end_date": "2025-03-15T03:03:22Z",
+        "start_date": "2025-02-19T18:04:17Z"
+      },
+      "total_reviews": 100
+    },
+    "overall_quality_metrics": {
+      "authenticity_score": 9.000000000000000e-01,
+      "average_quality_score": 8.000000000000000e-01,
+      "key_findings": [
+        "Most reviews are positive.",
+        "Some short and generic reviews were found."
+      ],
+      "spam_percentage": 5.000000000000000e-01
+    },
+    "recommendations": {
+      "quality_improvement": [
+        {
+          "area": "Review Length",
+          "expected_impact": "medium",
+          "suggestion": "Encourage users to write more detailed reviews by providing prompts or examples."
+        }
+      ],
+      "spam_detection": [
+        {
+          "issue": "Short and generic reviews",
+          "priority": "medium",
+          "suggestion": "Implement a minimum character limit for reviews."
+        },
+           {
+          "issue": "Emoji abuse",
+          "priority": "low",
+          "suggestion": "Set the limitation on the number of emojis in a review."
+        }
+      ]
+    },
+    "red_flags": {
+      "irrelevant_content": [],
+      "promotional_content": [],
+      "suspicious_voting": []
+    },
+    "statistical_analysis": {
+      "keyword_frequency": {
+        "common_phrases": [
+          {
+            "count": 15,
+            "phrase": "good game"
+          },
+          {
+            "count": 10,
+            "phrase": "great game"
+          },
+          {
+            "count": 8,
+            "phrase": "best game"
+          },
+          {
+            "count": 7,
+            "phrase": "tower defense"
+          }
+        ],
+        "top_keywords": [
+          {
+            "count": 59,
+            "word": "game"
+          },
+          {
+            "count": 23,
+            "word": "good"
+          },
+          {
+            "count": 19,
+            "word": "great"
+          },
+           {
+            "count": 14,
+            "word": "fun"
+          },
+            {
+            "count": 11,
+            "word": "best"
+          }
+        ]
+      },
+      "rating_distribution": {
+        "1_star": {
+          "count": 1,
+          "percentage": 1.000000000000000e-02
+        },
+        "2_star": {
+          "count": 2,
+          "percentage": 2.000000000000000e-02
+        },
+        "3_star": {
+          "count": 4,
+          "percentage": 4.000000000000000e-02
+        },
+        "4_star": {
+          "count": 7,
+          "percentage": 7.000000000000000e-02
+        },
+        "5_star": {
+          "count": 86,
+          "percentage": 8.600000000000000e-01
+        }
+      },
+      "review_length": {
+        "average_chars": 89,
+        "distribution": {
+          "long": {
+            "count": 14,
+            "range": "200+"
+          },
+          "medium": {
+            "count": 51,
+            "range": "50-199"
+          },
+          "short": {
+            "count": 30,
+             "range": "10-49"
+          },
+          "very_short": {
+            "count": 5,
+            "range": "1-9"
+          }
+        },
+        "median_chars": 64
+      },
+      "temporal_patterns": {
+        "daily_average": 3.846153846153846e+00,
+        "monthly_distribution": {
+          "2024-01": 0,
+          "2024-02": 34
+        },
+        "peak_dates": [
+          {
+            "count": 7,
+            "date": "2025-03-14T00:00:00.0000000Z",
+            "deviation_from_mean": 0
+          }
+        ]
+      }
+    }
+  }

@@ -1,8 +1,8 @@
-## User Segmentation Prompt: SuperTux Audience Analysis
+## User Segmentation Prompt
 
-**Objective:** To identify distinct user segments within the SuperTux player base based on their reviews, in order to better understand their motivations, preferences, and pain points.
+**Objective:** To identify distinct user segments based on their reviews, in order to better understand their motivations, preferences, and pain points.
 
-**Data Source:** The provided SuperTux review CSV data (including `reviewId`, `content`, `score`, `thumbsUpCount`, `reviewCreatedVersion`, `at`, `replyContent`, `repliedAt`, `appVersion`).
+**Data Source:** The provided review CSV data (including `reviewId`, `content`, `score`, `thumbsUpCount`, `reviewCreatedVersion`, `at`, `replyContent`, `repliedAt`, `appVersion`).
 
 **Segmentation Variables:**
 

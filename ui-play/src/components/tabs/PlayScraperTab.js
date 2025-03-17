@@ -25,7 +25,7 @@ const PlayScraperTab = () => {
 
     try {
       // Build the API URL with query parameters
-      const apiUrl = '/api/reviews';
+      const apiUrl = `${process.env.REACT_APP_API_URL}/api/reviews`;
       const params = {
         app_id: formData.appId,
         count: formData.count,

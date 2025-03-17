@@ -1,0 +1,121 @@
+{
+    "ftueAnalysis": [
+      {
+        "criterion": "Splash Screen to Interactive Game Time",
+        "meetsBestPractices": "Yes",
+        "observations": "The game loads to a fully interactive state in a reasonable amount of time.",
+        "numericalValue": {
+          "timeInSeconds": 17
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Loading Screen Duration",
+        "meetsBestPractices": "Yes",
+        "observations": "There are no long loading screens.",
+        "numericalValue": {
+          "maxDurationInSeconds": 4
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Permission Request Explanation",
+        "meetsBestPractices": "No",
+        "observations": "The permission for notifications is displayed without any explanation as to why it would be needed.",
+        "numericalValue": {
+          "permissionsRequestedWithoutExplanationCount": 1
+        },
+        "suggestedImprovements": "Add an explanation as to why the game wants permission to send notifications."
+      },
+      {
+        "criterion": "Skippable Tutorial",
+        "meetsBestPractices": "Not Applicable",
+        "observations": "There isn't a tutorial.",
+        "numericalValue": {
+          "isSkippable": null
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Language Consistency",
+        "meetsBestPractices": "Yes",
+        "observations": "The language is consistent throughout the game.",
+        "numericalValue": {
+          "isLanguageConsistent": true
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Login Requirement and Explanation",
+        "meetsBestPractices": "Yes",
+        "observations": "The game has an option to play as a guest or to log in using Facebook.",
+        "numericalValue": {
+          "isLoginMandatory": false,
+          "loginOptionsCount": 1
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Automatic Google Play Services Login",
+        "meetsBestPractices": "Not Applicable",
+        "observations": "The game does not use Google Play Services login.",
+        "numericalValue": {
+          "isAutomaticGoogleLogin": false
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Interstitials and Purchase Modals",
+        "meetsBestPractices": "Yes",
+        "observations": "There aren't any interstitial or purchase modals.",
+        "numericalValue": {
+          "interstitialCount": 0,
+          "purchaseModalCount": 0
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Options Accessibility",
+        "meetsBestPractices": "Yes",
+        "observations": "The option to purchase is accessible from the top right corner of the screen.",
+        "numericalValue": {
+          "isOptionsAccessible": true
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "Start Game Clarity",
+        "meetsBestPractices": "Yes",
+        "observations": "The game is clear on how to start it.",
+        "numericalValue": {
+          "isStartGameClear": true
+        },
+        "suggestedImprovements": null
+      },
+      {
+        "criterion": "User Profile Visibility & Customization",
+        "meetsBestPractices": "No",
+        "observations": "There is no user profile shown or any option for customization.",
+        "numericalValue": {
+          "isProfileVisible": false,
+          "isSkippable": null,
+          "isStartGameClear": null,
+          "loginOptionsCount": null,
+          "maxDurationInSeconds": null,
+          "permissionsRequestedWithoutExplanationCount": null,
+          "purchaseModalCount": null,
+          "timeInSeconds": null
+        },
+        "suggestedImprovements": "Add a way to view a user profile with the ability to customize the avatar."
+      },
+      {
+        "criterion": "Loading Status Feedback",
+        "meetsBestPractices": "No",
+        "observations": "The game loads buildings without loading or status feedback. The user has to wait for the buildings to load before being able to continue.",
+        "numericalValue": {
+          "instancesWithoutFeedbackCount": 3
+        },
+        "suggestedImprovements": "Provide loading status feedback when building the buildings."
+      }
+    ]
+  }

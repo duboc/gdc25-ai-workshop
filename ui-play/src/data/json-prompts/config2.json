@@ -1,166 +1,829 @@
 {
-  "name": "Feature Request Extraction Configuration",
-  "version": "1.0.0",
-  "description": "Configuration for extracting feature requests from Google Play reviews",
-  "input_parameters": {
-    "review_text": {
-      "type": "string",
-      "description": "The full text of the review to analyze",
-      "required": true
-    },
-    "max_features": {
-      "type": "integer",
-      "description": "Maximum number of feature requests to extract",
-      "default": 5,
-      "minimum": 1,
-      "maximum": 10
-    },
-    "include_implementation": {
-      "type": "boolean",
-      "description": "Whether to include implementation suggestions",
-      "default": true
-    }
-  },
-  "output_format": {
-    "feature_requests": {
-      "type": "array",
-      "description": "List of feature requests extracted from the review",
-      "items": {
-        "type": "object",
-        "properties": {
-          "feature": {
-            "type": "string",
-            "description": "The requested feature"
-          },
-          "category": {
-            "type": "string",
-            "description": "Category of the feature request",
-            "enum": ["UI/UX", "Performance", "Functionality", "Integration", "Security", "Other"]
-          },
-          "clarity": {
-            "type": "string",
-            "description": "How clearly the feature request is expressed",
-            "enum": ["Clear", "Somewhat Clear", "Vague"]
-          },
-          "impact": {
-            "type": "string",
-            "description": "Potential impact of implementing the feature",
-            "enum": ["High", "Medium", "Low"]
-          },
-          "implementation_difficulty": {
-            "type": "string",
-            "description": "Estimated difficulty of implementing the feature",
-            "enum": ["Easy", "Medium", "Hard"]
-          },
-          "implementation_approach": {
-            "type": "array",
-            "description": "Suggested steps for implementing the feature",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "required": ["feature", "category", "clarity", "impact"]
-      }
-    },
-    "competing_apps": {
-      "type": "array",
-      "description": "Competing apps mentioned that already have the requested features",
-      "items": {
-        "type": "object",
-        "properties": {
-          "app_name": {
-            "type": "string",
-            "description": "Name of the competing app"
-          },
-          "features": {
-            "type": "array",
-            "description": "Features the competing app has that were requested",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "urgency_assessment": {
+  "type": "object",
+  "properties": {
+    "meta_analysis": {
       "type": "object",
-      "description": "Assessment of the urgency of implementing the requested features",
       "properties": {
-        "level": {
-          "type": "string",
-          "description": "Level of urgency",
-          "enum": ["Critical", "High", "Medium", "Low"]
+        "total_reviews": {
+          "type": "integer"
         },
-        "reasoning": {
+        "analysis_date": {
           "type": "string",
-          "description": "Reasoning behind the urgency assessment"
+          "format": "date-time"
+        },
+        "time_period": {
+          "type": "object",
+          "properties": {
+            "start_date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "end_date": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "start_date",
+            "end_date"
+          ]
         }
-      }
+      },
+      "required": [
+        "total_reviews",
+        "analysis_date",
+        "time_period"
+      ]
+    },
+    "statistical_analysis": {
+      "type": "object",
+      "properties": {
+        "rating_distribution": {
+          "type": "object",
+          "properties": {
+            "1_star": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "percentage": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "count",
+                "percentage"
+              ]
+            },
+            "2_star": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "percentage": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "count",
+                "percentage"
+              ]
+            },
+            "3_star": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "percentage": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "count",
+                "percentage"
+              ]
+            },
+            "4_star": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "percentage": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "count",
+                "percentage"
+              ]
+            },
+            "5_star": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "percentage": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "count",
+                "percentage"
+              ]
+            }
+          },
+          "required": [
+            "1_star",
+            "2_star",
+            "3_star",
+            "4_star",
+            "5_star"
+          ]
+        },
+        "review_length": {
+          "type": "object",
+          "properties": {
+            "average_chars": {
+              "type": "integer"
+            },
+            "median_chars": {
+              "type": "integer"
+            },
+            "distribution": {
+              "type": "object",
+              "properties": {
+                "very_short": {
+                  "type": "object",
+                  "properties": {
+                    "range": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "range",
+                    "count"
+                  ]
+                },
+                "short": {
+                  "type": "object",
+                  "properties": {
+                    "range": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "range",
+                    "count"
+                  ]
+                },
+                "medium": {
+                  "type": "object",
+                  "properties": {
+                    "range": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "range",
+                    "count"
+                  ]
+                },
+                "long": {
+                  "type": "object",
+                  "properties": {
+                    "range": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "range",
+                    "count"
+                  ]
+                }
+              },
+              "required": [
+                "very_short",
+                "short",
+                "medium",
+                "long"
+              ]
+            }
+          },
+          "required": [
+            "average_chars",
+            "median_chars",
+            "distribution"
+          ]
+        },
+        "temporal_patterns": {
+          "type": "object",
+          "properties": {
+            "daily_average": {
+              "type": "number"
+            },
+            "peak_dates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "deviation_from_mean": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "date",
+                  "count",
+                  "deviation_from_mean"
+                ]
+              }
+            },
+            "monthly_distribution": {
+              "type": "object",
+              "properties": {
+                "2024-01": {
+                  "type": "integer"
+                },
+                "2024-02": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "required": [
+            "daily_average",
+            "peak_dates",
+            "monthly_distribution"
+          ]
+        },
+        "keyword_frequency": {
+          "type": "object",
+          "properties": {
+            "top_keywords": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "word": {
+                    "type": "string"
+                  },
+                  "count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "word",
+                  "count"
+                ]
+              }
+            },
+            "common_phrases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "phrase": {
+                    "type": "string"
+                  },
+                  "count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "phrase",
+                  "count"
+                ]
+              }
+            }
+          },
+          "required": [
+            "top_keywords",
+            "common_phrases"
+          ]
+        }
+      },
+      "required": [
+        "rating_distribution",
+        "review_length",
+        "temporal_patterns",
+        "keyword_frequency"
+      ]
+    },
+    "content_analysis": {
+      "type": "object",
+      "properties": {
+        "sentiment_discrepancies": {
+          "type": "object",
+          "properties": {
+            "total_found": {
+              "type": "integer"
+            },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "review_id": {
+                    "type": "string"
+                  },
+                  "rating": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 5
+                  },
+                  "sentiment_score": {
+                    "type": "number",
+                    "minimum": -1,
+                    "maximum": 1
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "review_id",
+                  "rating",
+                  "sentiment_score",
+                  "content",
+                  "reason"
+                ]
+              }
+            }
+          },
+          "required": [
+            "total_found",
+            "examples"
+          ]
+        },
+        "suspicious_patterns": {
+          "type": "object",
+          "properties": {
+            "short_reviews": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "review_id": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "rating": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 5
+                  },
+                  "length": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "review_id",
+                  "content",
+                  "rating",
+                  "length"
+                ]
+              }
+            },
+            "emoji_abuse": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "review_id": {
+                    "type": "string"
+                  },
+                  "emoji_count": {
+                    "type": "integer"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "review_id",
+                  "emoji_count",
+                  "content"
+                ]
+              }
+            },
+            "generic_comments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "review_id": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "review_id",
+                  "content",
+                  "frequency"
+                ]
+              }
+            }
+          },
+          "required": [
+            "short_reviews",
+            "emoji_abuse",
+            "generic_comments"
+          ]
+        }
+      },
+      "required": [
+        "sentiment_discrepancies",
+        "suspicious_patterns"
+      ]
+    },
+    "behavioral_patterns": {
+      "type": "object",
+      "properties": {
+        "similar_reviews": {
+          "type": "object",
+          "properties": {
+            "clusters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "similarity_score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "review_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "time_difference": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "similarity_score",
+                  "review_ids",
+                  "time_difference"
+                ]
+              }
+            }
+          },
+          "required": [
+            "clusters"
+          ]
+        },
+        "rating_anomalies": {
+          "type": "object",
+          "properties": {
+            "sudden_spikes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "rating": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 5
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "normal_average": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "date",
+                  "rating",
+                  "count",
+                  "normal_average"
+                ]
+              }
+            }
+          },
+          "required": [
+            "sudden_spikes"
+          ]
+        },
+        "multiple_reviews": {
+          "type": "object",
+          "properties": {
+            "users": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "review_count": {
+                    "type": "integer"
+                  },
+                  "reviews": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "user_id",
+                  "review_count",
+                  "reviews"
+                ]
+              }
+            }
+          },
+          "required": [
+            "users"
+          ]
+        }
+      },
+      "required": [
+        "similar_reviews",
+        "rating_anomalies",
+        "multiple_reviews"
+      ]
+    },
+    "authenticity_indicators": {
+      "type": "object",
+      "properties": {
+        "specific_features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "review_id": {
+                "type": "string"
+              },
+              "feature_mentioned": {
+                "type": "string"
+              },
+              "context": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "review_id",
+              "feature_mentioned",
+              "context"
+            ]
+          }
+        },
+        "detailed_feedback": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "review_id": {
+                "type": "string"
+              },
+              "feedback_quality_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "highlights": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "review_id",
+              "feedback_quality_score",
+              "highlights"
+            ]
+          }
+        }
+      },
+      "required": [
+        "specific_features",
+        "detailed_feedback"
+      ]
+    },
+    "red_flags": {
+      "type": "object",
+      "properties": {
+        "promotional_content": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "review_id": {
+                "type": "string"
+              },
+              "promotional_terms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "review_id",
+              "promotional_terms",
+              "severity"
+            ]
+          }
+        },
+        "irrelevant_content": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "review_id": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "review_id",
+              "content",
+              "type"
+            ]
+          }
+        },
+        "suspicious_voting": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "review_id": {
+                "type": "string"
+              },
+              "votes": {
+                "type": "integer"
+              },
+              "average_votes": {
+                "type": "number"
+              },
+              "deviation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "review_id",
+              "votes",
+              "average_votes",
+              "deviation"
+            ]
+          }
+        }
+      },
+      "required": [
+        "promotional_content",
+        "irrelevant_content",
+        "suspicious_voting"
+      ]
+    },
+    "recommendations": {
+      "type": "object",
+      "properties": {
+        "spam_detection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "issue": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "issue",
+              "suggestion",
+              "priority"
+            ]
+          }
+        },
+        "quality_improvement": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "area": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              },
+              "expected_impact": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "area",
+              "suggestion",
+              "expected_impact"
+            ]
+          }
+        }
+      },
+      "required": [
+        "spam_detection",
+        "quality_improvement"
+      ]
+    },
+    "overall_quality_metrics": {
+      "type": "object",
+      "properties": {
+        "authenticity_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "spam_percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "average_quality_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "key_findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "authenticity_score",
+        "spam_percentage",
+        "average_quality_score",
+        "key_findings"
+      ]
     }
   },
-  "examples": [
-    {
-      "input": {
-        "review_text": "I've been using this app for months and it's almost perfect for my needs. Would love to see dark mode support and the ability to export my data to CSV. Also, it would be great if it could sync with my Google Calendar. The competitor app 'TaskMaster' already has these features and I'm considering switching if these aren't added soon."
-      },
-      "output": {
-        "feature_requests": [
-          {
-            "feature": "Dark Mode Support",
-            "category": "UI/UX",
-            "clarity": "Clear",
-            "impact": "Medium",
-            "implementation_difficulty": "Easy",
-            "implementation_approach": [
-              "Add a theme toggle in settings",
-              "Create dark color palette",
-              "Implement theme switching logic",
-              "Test across all screens"
-            ]
-          },
-          {
-            "feature": "CSV Export Functionality",
-            "category": "Functionality",
-            "clarity": "Clear",
-            "impact": "High",
-            "implementation_difficulty": "Medium",
-            "implementation_approach": [
-              "Add export button in data view screens",
-              "Create service to format data into CSV structure",
-              "Implement file saving using device's native sharing options",
-              "Add options for selecting date ranges and data categories"
-            ]
-          },
-          {
-            "feature": "Google Calendar Integration",
-            "category": "Integration",
-            "clarity": "Clear",
-            "impact": "High",
-            "implementation_difficulty": "Hard",
-            "implementation_approach": [
-              "Implement Google OAuth 2.0 authentication",
-              "Use Google Calendar API for bidirectional sync",
-              "Create settings for sync preferences",
-              "Implement conflict resolution logic"
-            ]
-          }
-        ],
-        "competing_apps": [
-          {
-            "app_name": "TaskMaster",
-            "features": [
-              "Dark Mode Support",
-              "CSV Export Functionality",
-              "Google Calendar Integration"
-            ]
-          }
-        ],
-        "urgency_assessment": {
-          "level": "High",
-          "reasoning": "User explicitly mentions considering switching to a competitor if features aren't added soon, indicating high risk of customer loss."
-        }
-      }
-    }
+  "required": [
+    "meta_analysis",
+    "statistical_analysis",
+    "content_analysis",
+    "behavioral_patterns",
+    "authenticity_indicators",
+    "red_flags",
+    "recommendations",
+    "overall_quality_metrics"
+  ],
+  "propertyOrdering": [
+    "meta_analysis",
+    "statistical_analysis",
+    "content_analysis",
+    "behavioral_patterns",
+    "authenticity_indicators",
+    "red_flags",
+    "recommendations",
+    "overall_quality_metrics"
   ]
 }

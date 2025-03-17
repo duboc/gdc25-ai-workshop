@@ -1,0 +1,232 @@
+{
+    "actionable_insights": [
+      "Prioritize fixing the network connectivity issues, as they are the most frequently reported problem and severely impact user experience.",
+      "Investigate and address the crashing issues, especially on specific devices like Pixel phones, to improve stability.",
+      "Consider adding a cloud save feature to prevent data loss when users uninstall or update the game.",
+      "Implement a clearer inventory management system and tutorial to address the complexity issues reported by new players.",
+      "Evaluate the pricing of red gems and consider offering more value for money to improve player satisfaction."
+    ],
+    "executive_summary": "Final Fantasy VII: Ever Crisis is facing significant challenges related to network connectivity, game stability, and user onboarding. Many players are unable to log in or experience frequent crashes, leading to frustration and negative reviews. The game's complexity and pricing structure are also points of concern. Addressing these issues is crucial for improving player retention and overall satisfaction.",
+    "problem_analysis": {
+      "critical_problems_count": 6,
+      "most_affected_segments": [
+        "New Users",
+        "Casual Users"
+      ],
+      "table": [
+        {
+          "affected_user_segments": [
+            "All Users"
+          ],
+          "category": "Bugs/Glitches",
+          "example_reviews": [
+            {
+              "at": "2025-03-08 08:41:58",
+              "content": "\"why I can't play anymore, for a few days, it shows me \"\"an error has occurred\"\". I tried to clear the cache and the reinstall but nothing works... Again today, it won't start....\""
+            },
+            {
+              "at": "2025-02-24 22:54:00",
+              "content": "Update 02/23/25 App still crashes about every 15 mins. Im getting tired of having to do the same missions 3 and 4 times because of the random crashes. Why wont you fix this issue?!?!?! I would give 5 stars if you fix this problem because I enjoy the game a lot!"
+            },
+            {
+              "at": "2025-03-12 03:07:01",
+              "content": "\"I'd give it 5 stars in a heartbeat, but the mobile version is all but trash for me due to the fact it constantly crashes, and so often when I try to do co-op.\""
+            }
+          ],
+          "frequency": 15,
+          "severity": "Critical",
+          "trend": "Stable"
+        },
+        {
+          "affected_user_segments": [
+            "All Users"
+          ],
+          "category": "Performance Problems",
+          "example_reviews": [
+            {
+              "at": "2025-03-12 20:03:15",
+              "content": "This game is nice ..Once updated to latest version soooo many advertisement it will make the game very lagg and network problem..if this thing not fixed im going to uninstalled this apps..please fix this issue.."
+            },
+            {
+              "at": "2025-03-06 06:37:57",
+              "content": "Randomly freezes. Poorly optimized"
+            }
+          ],
+          "frequency": 3,
+          "severity": "Major",
+          "trend": "Stable"
+        },
+        {
+          "affected_user_segments": [
+            "New Users"
+          ],
+          "category": "Usability Issues",
+          "example_reviews": [
+            {
+              "at": "2025-02-28 00:44:25",
+              "content": "i give it 5* for quality. didn't play it long because it was way to complicated to understand. too much thrown at you at once. day 1 telling me inventory is full. where's inventory? how do I fix this? navigating the menus gave me a headache. I need something simpler and easier to understand."
+            },
+            {
+              "at": "2025-03-01 11:05:11",
+              "content": "to many promos for new player. takes five + minutes opening the game. I just want to play the game and level up and replay the stories I grew up with."
+            }
+          ],
+          "frequency": 2,
+          "severity": "Minor",
+          "trend": "Stable"
+        },
+        {
+          "affected_user_segments": [
+            "All Users"
+          ],
+          "category": "Content/Quality Issues",
+          "example_reviews": [
+            {
+              "at": "2025-03-02 12:17:56",
+              "content": "Game is too difficult for the amount of time and resources spent on it. Limited banners are limited and you often need those weapons to surpass the difficulty gap. This is made even harder for newer players. Free gems run out and recovering them takes weeks of passive grinding. The drop rate for summons is terrible."
+            },
+            {
+              "at": "2025-03-10 21:25:56",
+              "content": "FF7 absolutely loved it until now can anyone explain to me what the point is of recommending a power level when I'm literally 150000 points higher and still can't beat things like a summon or the stupid boss on floor 25 of the amber tower y'all literally took out 9 levels when the original cap was 99 you also took out combining materia two fire makes a fira and so on but you replaced this with a stupid rarity system who cares if the fira is purple or green but weapons can now reach level 120 lol"
+            }
+          ],
+          "frequency": 2,
+          "severity": "Major",
+          "trend": "Stable"
+        },
+        {
+          "affected_user_segments": [
+            "All Users"
+          ],
+          "category": "Feature Issues",
+          "example_reviews": [
+            {
+              "at": "2025-03-13 16:04:30",
+              "content": "Much as I have always loved this game I find it very annoying that some things can only be obtained / unlocked in co-op battles. I have ALWAYS favoured SINGLE PLAYER games..."
+            },
+            {
+              "at": "2025-03-07 11:04:02",
+              "content": "\"Uncompletable Mission: \"\"Story: THE FIRST SOLDIER EPISODE II -- Clear FFVII FS CHAPTER 1 - MAIN SECTION 2 - EP1\"\" won't clear. When selected, the clarification message says to first clear Ch 1, sub 1-3, but Episode II is UNAVAILABLE (I've cleared CC through Ch 4). In Episode I, there is no sub 1-3. I have missed out on multiple prizes due to this glitch. No in-game \"\"contact support\"\", either.\""
+            }
+          ],
+          "frequency": 2,
+          "severity": "Major",
+          "trend": "Stable"
+        },
+        {
+          "affected_user_segments": [
+            "All Users"
+          ],
+          "category": "Network Connectivity Issues",
+          "example_reviews": [
+            {
+              "at": "2025-03-14 19:31:29",
+              "content": "Won't work on my phone. keeps saying that it was unable to connect to server. Oh well, on to some other game, I guess."
+            },
+            {
+              "at": "2025-03-14 05:14:21",
+              "content": "Unable to connect....FIX THIS"
+            },
+             {
+              "at": "2025-03-13 07:04:16",
+              "content": "\"can't log in after the update, even there is internet connection\""
+            }
+          ],
+          "frequency": 25,
+          "severity": "Critical",
+          "trend": "Stable"
+        }
+      ],
+      "trend_summary": "The most prevalent problem is network connectivity issues, which consistently affect a large number of users. Bug/glitches are also a significant concern. Other issues like performance, usability, content quality, and feature problems are reported less frequently but still contribute to a negative user experience. There is no clear increasing or decreasing trend for any of the problem categories over the short period analyzed, suggesting these issues are persistent and require immediate attention. The network connectivity issues are the most critical and need to be addressed first, followed by bug fixes and performance improvements. Usability and content quality issues should be addressed in subsequent updates based on user feedback and development resources."
+    },
+    "sentiment_trend_analysis": {
+      "period_trends": [],
+      "significant_events": [],
+      "summary": "Sentiment analysis is not possible with the current data structure."
+    },
+    "suggestion_analysis": {
+      "emerging_suggestions": "No emerging suggestions were identified in the provided data.",
+      "high_impact_count": 3,
+      "quick_wins": [
+        "Implement cloud save functionality to prevent data loss.",
+        "Improve error messaging to provide more helpful guidance to users experiencing connectivity issues.",
+        "Optimize the game for a wider range of devices to reduce crashes and improve performance."
+      ],
+      "table": [
+        {
+          "estimated_impact": "High",
+          "example_reviews": [
+            {
+              "content": "CAN WE SEND MESSAGE WITH OUR FRIENDS PLEASE"
+            }
+          ],
+          "frequency": 1,
+          "implementation_difficulty": "Medium",
+          "suggestion_group": "In-game Friend Messaging"
+        },
+        {
+          "estimated_impact": "High",
+          "example_reviews": [
+            {
+              "content": "More STORYS AMD LESS COOP"
+            }
+          ],
+          "frequency": 1,
+          "implementation_difficulty": "Easy",
+          "suggestion_group": "More Story Content"
+        },
+        {
+          "estimated_impact": "Medium",
+          "example_reviews": [
+            {
+              "content": "I want my money back please"
+            }
+          ],
+          "frequency": 1,
+          "implementation_difficulty": "Hard",
+          "suggestion_group": "Refund System"
+        },
+        {
+          "estimated_impact": "Medium",
+          "example_reviews": [
+            {
+              "content": "A full offline game without ads or any gacha elements of ff7 in this style would be great."
+            }
+          ],
+          "frequency": 1,
+          "implementation_difficulty": "Hard",
+          "suggestion_group": "Offline Mode"
+        }
+      ]
+    },
+    "user_segments": {
+      "identified_segments": [
+        "Power Users",
+        "Casual Users",
+        "New Users"
+      ],
+      "segment_specific_issues": [
+        {
+          "segment": "New Users",
+          "top_issues": [
+            "Onboarding Problems",
+            "Feature Discovery"
+          ]
+        },
+        {
+          "segment": "Casual Users",
+          "top_issues": [
+            "Network Connectivity Issues",
+            "Game Crashes"
+          ]
+        },
+        {
+          "segment": "Power Users",
+          "top_issues": [
+            "Lack of End-Game Content",
+            "Limited Customization Options"
+          ]
+        }
+      ]
+    }
+  }

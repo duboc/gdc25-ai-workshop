@@ -1,0 +1,438 @@
+{
+  "type": "object",
+  "properties": {
+    "analysis_metadata": {
+      "type": "object",
+      "properties": {
+        "app_name": {
+          "type": "string"
+        },
+        "analysis_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "total_reviews_analyzed": {
+          "type": "integer"
+        },
+        "date_range": {
+          "type": "object",
+          "properties": {
+            "start_date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "end_date": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": ["start_date", "end_date"]
+        },
+        "versions_included": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["app_name", "analysis_date", "total_reviews_analyzed", "date_range", "versions_included"]
+    },
+    "user_segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "segment_name": {
+            "type": "string"
+          },
+          "segment_size": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": ["count", "percentage"]
+          },
+          "primary_characteristics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sentiment_distribution": {
+            "type": "object",
+            "properties": {
+              "positive": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "neutral": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "negative": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": ["positive", "neutral", "negative"]
+          },
+          "rating_distribution": {
+            "type": "object",
+            "properties": {
+              "promoters": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "neutrals": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "detractors": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": ["promoters", "neutrals", "detractors"]
+          },
+          "engagement_level": {
+            "type": "object",
+            "properties": {
+              "high_engagement": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "low_engagement": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": ["high_engagement", "low_engagement"]
+          },
+          "review_length_distribution": {
+            "type": "object",
+            "properties": {
+              "short": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "medium": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "long": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": ["short", "medium", "long"]
+          },
+          "most_common_themes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "theme": {
+                  "type": "string",
+                  "enum": [
+                    "nostalgia",
+                    "fun/enjoyment",
+                    "difficulty",
+                    "ads/monetization",
+                    "strategy/gameplay",
+                    "content_volume",
+                    "bugs/technical_issues",
+                    "value",
+                    "game_comparisons"
+                  ]
+                },
+                "frequency": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "representative_quotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "review_id": {
+                        "type": "string"
+                      },
+                      "quote": {
+                        "type": "string"
+                      },
+                      "sentiment": {
+                        "type": "string",
+                        "enum": ["positive", "neutral", "negative"]
+                      }
+                    },
+                    "required": ["review_id", "quote", "sentiment"]
+                  }
+                }
+              },
+              "required": ["theme", "frequency", "representative_quotes"]
+            }
+          },
+          "specific_features_mentioned": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "feature": {
+                  "type": "string"
+                },
+                "mention_count": {
+                  "type": "integer"
+                },
+                "sentiment_score": {
+                  "type": "number",
+                  "minimum": -1,
+                  "maximum": 1
+                }
+              },
+              "required": ["feature", "mention_count", "sentiment_score"]
+            }
+          },
+          "common_problems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "problem_category": {
+                  "type": "string"
+                },
+                "frequency": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "example_reviews": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "review_id": {
+                        "type": "string"
+                      },
+                      "content_excerpt": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["review_id", "content_excerpt"]
+                  }
+                }
+              },
+              "required": ["problem_category", "frequency", "example_reviews"]
+            }
+          },
+          "version_distribution": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "string"
+                },
+                "percentage": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": ["version", "percentage"]
+            }
+          },
+          "time_trends": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "time_period": {
+                  "type": "string"
+                },
+                "review_count": {
+                  "type": "integer"
+                },
+                "average_sentiment": {
+                  "type": "number",
+                  "minimum": -1,
+                  "maximum": 1
+                },
+                "average_rating": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5
+                }
+              },
+              "required": ["time_period", "review_count", "average_sentiment", "average_rating"]
+            }
+          }
+        },
+        "required": [
+          "segment_name",
+          "segment_size",
+          "primary_characteristics",
+          "sentiment_distribution",
+          "rating_distribution",
+          "engagement_level",
+          "review_length_distribution",
+          "most_common_themes",
+          "specific_features_mentioned",
+          "common_problems",
+          "version_distribution",
+          "time_trends"
+        ]
+      }
+    },
+    "cross_segment_analysis": {
+      "type": "object",
+      "properties": {
+        "key_differentiators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "factor": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "segment_comparison": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "segment_name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["segment_name", "value"]
+                }
+              }
+            },
+            "required": ["factor", "description", "segment_comparison"]
+          }
+        },
+        "common_patterns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "affected_segments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": ["pattern", "description", "affected_segments"]
+          }
+        },
+        "version_specific_insights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "version": {
+                "type": "string"
+              },
+              "key_finding": {
+                "type": "string"
+              },
+              "segment_impact": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "segment_name": {
+                      "type": "string"
+                    },
+                    "impact_description": {
+                      "type": "string"
+                    },
+                    "impact_score": {
+                      "type": "number",
+                      "minimum": -5,
+                      "maximum": 5
+                    }
+                  },
+                  "required": ["segment_name", "impact_description", "impact_score"]
+                }
+              }
+            },
+            "required": ["version", "key_finding", "segment_impact"]
+          }
+        }
+      },
+      "required": ["key_differentiators", "common_patterns", "version_specific_insights"]
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "segment_target": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "expected_impact": {
+            "type": "object",
+            "properties": {
+              "metrics_affected": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "impact_magnitude": {
+                "type": "string",
+                "enum": ["significant", "moderate", "minor"]
+              }
+            },
+            "required": ["metrics_affected", "impact_magnitude"]
+          }
+        },
+        "required": ["segment_target", "recommendation", "rationale", "priority", "expected_impact"]
+      }
+    }
+  },
+  "required": ["analysis_metadata", "user_segments", "cross_segment_analysis", "recommendations"],
+  "propertyOrdering": ["analysis_metadata", "user_segments", "cross_segment_analysis", "recommendations"]
+}

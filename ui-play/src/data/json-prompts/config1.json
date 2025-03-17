@@ -1,125 +1,314 @@
 {
-  "name": "Sentiment Analysis Configuration",
-  "version": "1.0.0",
-  "description": "Configuration for sentiment analysis of Google Play reviews",
-  "input_parameters": {
-    "review_text": {
+  "description": "Schema for product feedback analysis reports",
+  "type": "object",
+  "required": [
+    "executive_summary",
+    "problem_analysis",
+    "suggestion_analysis",
+    "sentiment_trend_analysis",
+    "user_segments",
+    "actionable_insights"
+  ],
+  "properties": {
+    "executive_summary": {
       "type": "string",
-      "description": "The full text of the review to analyze",
-      "required": true
+      "description": "A concise summary of the major findings and recommendations"
     },
-    "include_suggestions": {
-      "type": "boolean",
-      "description": "Whether to include improvement suggestions in the analysis",
-      "default": true
-    },
-    "sentiment_scale": {
-      "type": "string",
-      "description": "The scale to use for sentiment classification",
-      "enum": ["3-point", "5-point"],
-      "default": "3-point"
-    }
-  },
-  "output_format": {
-    "overall_sentiment": {
-      "type": "string",
-      "description": "The overall sentiment classification of the review"
-    },
-    "sentiment_score": {
-      "type": "number",
-      "description": "Numerical score representing sentiment (0-1)",
-      "minimum": 0,
-      "maximum": 1
-    },
-    "positive_aspects": {
-      "type": "array",
-      "description": "List of positive aspects mentioned in the review",
-      "items": {
-        "type": "object",
-        "properties": {
-          "aspect": {
-            "type": "string",
-            "description": "The positive aspect identified"
+    "problem_analysis": {
+      "type": "object",
+      "required": [
+        "table",
+        "trend_summary",
+        "critical_problems_count",
+        "most_affected_segments"
+      ],
+      "properties": {
+        "table": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "category",
+              "frequency",
+              "severity",
+              "example_reviews",
+              "trend",
+              "affected_user_segments"
+            ],
+            "properties": {
+              "category": {
+                "type": "string",
+                "description": "Category of the problem"
+              },
+              "frequency": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Number of occurrences of this problem"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["Critical", "Major", "Minor"],
+                "description": "Severity level of the problem"
+              },
+              "example_reviews": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["content", "at"],
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "Text content of the review"
+                    },
+                    "at": {
+                      "type": "string",
+                      "description": "Date of the review"
+                    }
+                  }
+                },
+                "minItems": 1,
+                "description": "Example reviews demonstrating the problem"
+              },
+              "trend": {
+                "type": "string",
+                "enum": ["Increasing", "Decreasing", "Stable"],
+                "description": "Trend of the problem frequency over time"
+              },
+              "affected_user_segments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "User segments affected by this problem"
+              }
+            }
           },
-          "confidence": {
-            "type": "number",
-            "description": "Confidence score for this aspect (0-1)",
-            "minimum": 0,
-            "maximum": 1
-          }
-        }
-      }
-    },
-    "negative_aspects": {
-      "type": "array",
-      "description": "List of negative aspects mentioned in the review",
-      "items": {
-        "type": "object",
-        "properties": {
-          "aspect": {
-            "type": "string",
-            "description": "The negative aspect identified"
+          "description": "Table of identified problems"
+        },
+        "trend_summary": {
+          "type": "string",
+          "description": "Text summary of problem trends over time"
+        },
+        "critical_problems_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of critical problems identified"
+        },
+        "most_affected_segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
           },
-          "confidence": {
-            "type": "number",
-            "description": "Confidence score for this aspect (0-1)",
-            "minimum": 0,
-            "maximum": 1
-          }
+          "description": "List of user segments most affected by problems"
         }
-      }
+      },
+      "description": "Analysis of problems identified in feedback"
     },
-    "improvement_suggestions": {
+    "suggestion_analysis": {
+      "type": "object",
+      "required": [
+        "table",
+        "emerging_suggestions",
+        "high_impact_count",
+        "quick_wins"
+      ],
+      "properties": {
+        "table": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "suggestion_group",
+              "frequency",
+              "estimated_impact",
+              "implementation_difficulty",
+              "example_reviews"
+            ],
+            "properties": {
+              "suggestion_group": {
+                "type": "string",
+                "description": "Category of the suggestion"
+              },
+              "frequency": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Number of occurrences of this suggestion"
+              },
+              "estimated_impact": {
+                "type": "string",
+                "enum": ["High", "Medium", "Low"],
+                "description": "Estimated impact of implementing this suggestion"
+              },
+              "implementation_difficulty": {
+                "type": "string",
+                "enum": ["Easy", "Medium", "Hard"],
+                "description": "Estimated difficulty of implementing this suggestion"
+              },
+              "example_reviews": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["content"],
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "Text content of the suggestion"
+                    }
+                  }
+                },
+                "minItems": 1,
+                "description": "Example reviews containing this suggestion"
+              }
+            }
+          },
+          "description": "Table of identified suggestions"
+        },
+        "emerging_suggestions": {
+          "type": "string",
+          "description": "Text summary of emerging suggestions that appeared recently"
+        },
+        "high_impact_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of high-impact suggestions identified"
+        },
+        "quick_wins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of high-impact, low-difficulty suggestions"
+        }
+      },
+      "description": "Analysis of suggestions identified in feedback"
+    },
+    "sentiment_trend_analysis": {
+      "type": "object",
+      "required": [
+        "summary",
+        "period_trends",
+        "significant_events"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Overall text summary of sentiment trends"
+        },
+        "period_trends": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "period",
+              "positive_percentage",
+              "negative_percentage",
+              "neutral_percentage"
+            ],
+            "properties": {
+              "period": {
+                "type": "string",
+                "description": "Time period of the sentiment data"
+              },
+              "positive_percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Percentage of positive sentiment"
+              },
+              "negative_percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Percentage of negative sentiment"
+              },
+              "neutral_percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Percentage of neutral sentiment"
+              }
+            }
+          },
+          "description": "Sentiment trends over different time periods"
+        },
+        "significant_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "date",
+              "event",
+              "sentiment_impact"
+            ],
+            "properties": {
+              "date": {
+                "type": "string",
+                "description": "Date of the significant event"
+              },
+              "event": {
+                "type": "string",
+                "description": "Description of the event"
+              },
+              "sentiment_impact": {
+                "type": "string",
+                "enum": ["Positive", "Negative", "Neutral", "Mixed"],
+                "description": "Impact of the event on sentiment"
+              }
+            }
+          },
+          "description": "List of significant events affecting sentiment"
+        }
+      },
+      "description": "Analysis of sentiment trends over time"
+    },
+    "user_segments": {
+      "type": "object",
+      "required": [
+        "identified_segments",
+        "segment_specific_issues"
+      ],
+      "properties": {
+        "identified_segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of identified user segments"
+        },
+        "segment_specific_issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "segment",
+              "top_issues"
+            ],
+            "properties": {
+              "segment": {
+                "type": "string",
+                "description": "Name of the user segment"
+              },
+              "top_issues": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Top issues affecting this segment"
+              }
+            }
+          },
+          "description": "Issues specific to particular user segments"
+        }
+      },
+      "description": "Analysis of different user segments and their specific issues"
+    },
+    "actionable_insights": {
       "type": "array",
-      "description": "Suggestions for improvement based on the review",
       "items": {
         "type": "string"
-      }
-    },
-    "user_experience_summary": {
-      "type": "string",
-      "description": "A brief summary of the user's experience"
-    }
-  },
-  "examples": [
-    {
-      "input": {
-        "review_text": "This app is mostly good but has some annoying bugs. I love the interface and how easy it is to find what I'm looking for. However, it crashes at least once a day and sometimes loses my saved data. Would be 5 stars if these issues were fixed."
       },
-      "output": {
-        "overall_sentiment": "Mixed (Leaning Positive)",
-        "sentiment_score": 0.65,
-        "positive_aspects": [
-          {
-            "aspect": "User-friendly interface",
-            "confidence": 0.95
-          },
-          {
-            "aspect": "Easy navigation and search functionality",
-            "confidence": 0.9
-          }
-        ],
-        "negative_aspects": [
-          {
-            "aspect": "App crashes frequently",
-            "confidence": 0.95
-          },
-          {
-            "aspect": "Data loss issues",
-            "confidence": 0.9
-          },
-          {
-            "aspect": "Reliability concerns",
-            "confidence": 0.85
-          }
-        ],
-        "improvement_suggestions": [
-          "Fix stability issues to prevent crashes",
-          "Implement better data saving/recovery mechanisms",
-          "Address bug causing data loss"
-        ],
-        "user_experience_summary": "The user generally appreciates the app's design and usability but is frustrated by technical issues that impact reliability. They indicate willingness to give a perfect rating if the stability problems are resolved."
-      }
+      "minItems": 1,
+      "description": "List of specific, actionable recommendations based on the data"
     }
-  ]
+  }
 }
