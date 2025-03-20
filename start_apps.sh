@@ -58,7 +58,11 @@ start_ui() {
   echo "Installing UI dependencies..."
   npm install
   
-  # Start the React development server
+  # Build the React application
+  echo "Building the UI application..."
+  npm run build
+  
+  # Start the React server
   echo "Starting UI server on http://localhost:3000"
   npm start &
   UI_PID=$!
